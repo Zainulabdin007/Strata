@@ -1,0 +1,49 @@
+RUN opt-raw-20260917-validation-manual-w2
+PASS opt-raw-20260917-validation-manual-w2: 200000 verified rows; 3192905 bytes; RSS=51101696
+RUN opt-raw-20260917-validation-balanced-w2
+PASS opt-raw-20260917-validation-balanced-w2: 200000 verified rows; 3392519 bytes; RSS=45187072
+RUN opt-raw-20260917-validation-max_compression-w2
+PASS opt-raw-20260917-validation-max_compression-w2: 200000 verified rows; 3034683 bytes; RSS=49938432
+RUN opt-raw-20260917-validation-max_ingest-w2
+PASS opt-raw-20260917-validation-max_ingest-w2: 200000 verified rows; 12855471 bytes; RSS=48824320
+RUN opt-raw-20260917-validation-max_decode-w2
+PASS opt-raw-20260917-validation-max_decode-w2: 200000 verified rows; 8368331 bytes; RSS=46972928
+RUN opt-raw-20260917-validation-real_auto_z1_b64k-w2
+PASS opt-raw-20260917-validation-real_auto_z1_b64k-w2: 200000 verified rows; 3122790 bytes; RSS=109101056
+RUN opt-raw-20260917-validation-real_auto_z3_b64k-w2
+PASS opt-raw-20260917-validation-real_auto_z3_b64k-w2: 200000 verified rows; 2959757 bytes; RSS=124469248
+RUN opt-raw-20260917-validation-real_auto_z9_b131k-w2
+PASS opt-raw-20260917-validation-real_auto_z9_b131k-w2: 200000 verified rows; 2902750 bytes; RSS=134430720
+RUN opt-raw-20260917-validation-real_plain_z1_b64k-w2
+PASS opt-raw-20260917-validation-real_plain_z1_b64k-w2: 200000 verified rows; 3111233 bytes; RSS=130154496
+RUN opt-raw-20260917-validation-real_delta_z3_b64k-w2
+PASS opt-raw-20260917-validation-real_delta_z3_b64k-w2: 200000 verified rows; 3305369 bytes; RSS=165855232
+RUN opt-raw-20260917-validation-parquet-w2
+PASS opt-raw-20260917-validation-parquet-w2: 200000 verified rows; 4243922 bytes; RSS=55771136
+RUN opt-raw-20260917-validation-fixed-w2
+PASS opt-raw-20260917-validation-fixed-w2: 200000 verified rows; 11200196 bytes; RSS=24281088
+RUN opt-raw-20260917-1gb-manual-w2
+PASS opt-raw-20260917-1gb-manual-w2: 17857142 verified rows; 287420271 bytes; RSS=248692736
+RUN opt-raw-20260917-1gb-balanced-w2
+PASS opt-raw-20260917-1gb-balanced-w2: 17857142 verified rows; 309224280 bytes; RSS=239550464
+RUN opt-raw-20260917-1gb-max_compression-w2
+PASS opt-raw-20260917-1gb-max_compression-w2: 17857142 verified rows; 275344253 bytes; RSS=231407616
+RUN opt-raw-20260917-1gb-max_ingest-w2
+PASS opt-raw-20260917-1gb-max_ingest-w2: 17857142 verified rows; 1147718997 bytes; RSS=204226560
+RUN opt-raw-20260917-1gb-max_decode-w2
+PASS opt-raw-20260917-1gb-max_decode-w2: 17857142 verified rows; 749612768 bytes; RSS=205209600
+RUN opt-raw-20260917-1gb-real_auto_z1_b64k-w2
+PASS opt-raw-20260917-1gb-real_auto_z1_b64k-w2: 17857142 verified rows; 280080207 bytes; RSS=318390272
+RUN opt-raw-20260917-1gb-real_auto_z3_b64k-w2
+PASS opt-raw-20260917-1gb-real_auto_z3_b64k-w2: 17857142 verified rows; 262391212 bytes; RSS=341803008
+RUN opt-raw-20260917-1gb-real_auto_z9_b131k-w2
+PASS opt-raw-20260917-1gb-real_auto_z9_b131k-w2: 17857142 verified rows; 256435533 bytes; RSS=345571328
+RUN opt-raw-20260917-1gb-real_plain_z1_b64k-w2
+PASS opt-raw-20260917-1gb-real_plain_z1_b64k-w2: 17857142 verified rows; 275895149 bytes; RSS=856375296
+RUN opt-raw-20260917-1gb-real_delta_z3_b64k-w2
+PASS opt-raw-20260917-1gb-real_delta_z3_b64k-w2: 17857142 verified rows; 300595038 bytes; RSS=327385088
+RUN opt-raw-20260917-1gb-parquet-w2
+PASS opt-raw-20260917-1gb-parquet-w2: 17857142 verified rows; 295152761 bytes; RSS=115294208
+RUN opt-raw-20260917-1gb-fixed-w2
+PASS opt-raw-20260917-1gb-fixed-w2: 17857142 verified rows; 1000000148 bytes; RSS=25395200
+ALL REQUESTED REAL-DATA RUNS COMPLETED

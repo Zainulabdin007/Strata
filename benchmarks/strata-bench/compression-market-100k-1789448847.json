@@ -1,0 +1,32 @@
+{
+  "suite": "compression",
+  "meta": {
+    "git_commit": null,
+    "rustc_version": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo_profile": "release",
+    "debug_assertions": false,
+    "compiler_settings": "opt-level>=1 (release/no debug_assertions)",
+    "os": "macos",
+    "arch": "aarch64",
+    "dataset_seed": 42,
+    "workload": "market",
+    "worker_count": 18,
+    "block_size": 65536,
+    "segment_size_bytes": 268435456,
+    "record_count": 100000,
+    "size_label": "100k",
+    "compression_codec": "lz4",
+    "started_unix_secs": 1789448847
+  },
+  "metrics": {
+    "bits_per_value": 7.83224,
+    "column_blocks_observed": 16,
+    "compressed_bytes": 783224,
+    "compression_ratio_logical_over_compressed": 6.690544467483121,
+    "encoded_semantic_bytes": 1650876,
+    "raw_logical_bytes": 5240195,
+    "records": 100000,
+    "schema_columns": 8,
+    "segments": 1
+  }
+}

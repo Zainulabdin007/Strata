@@ -1,0 +1,767 @@
+{
+  "release_build": true,
+  "sample_records": 32768,
+  "options": {
+    "block_rows": null,
+    "segment_bytes": null,
+    "workers": 2,
+    "codec": null,
+    "pipelines": {}
+  },
+  "trials": [
+    {
+      "name": "Plain + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 58,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 3994950,
+        "compressed_bytes": 3994950,
+        "physical_bytes_written": 4000474,
+        "compression_ratio": 0.458697644329147,
+        "records_per_sec": 561637.6495498646,
+        "blocks_per_sec": 34.27964169615873,
+        "logical_mb_per_sec": 31.451708374792418,
+        "physical_mb_per_sec": 68.56740766739944,
+        "encode_mb_per_sec": 28.066308452401895,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 1564.4420980593438,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 65381167
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 2557125
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5646842527056107
+      },
+      "decode_mb_s": 19.5929941054494,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Plain-none\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Plain + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 44,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 3994950,
+        "compressed_bytes": 905359,
+        "physical_bytes_written": 910883,
+        "compression_ratio": 2.0145375421431733,
+        "records_per_sec": 735846.2440649827,
+        "blocks_per_sec": 44.91249048248186,
+        "logical_mb_per_sec": 41.207389667639035,
+        "physical_mb_per_sec": 20.455012034077264,
+        "encode_mb_per_sec": 42.665798628771384,
+        "compress_mb_per_sec": 751.6076043698769,
+        "write_mb_per_sec": 942.4162476462433,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 43008875
+        },
+        "compression_time": {
+          "nanos": 5315207
+        },
+        "write_time": {
+          "nanos": 966540
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5437110701339528
+      },
+      "decode_mb_s": 19.831769400692377,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Plain-lz4\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Plain + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 44,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 3994950,
+        "compressed_bytes": 459582,
+        "physical_bytes_written": 465106,
+        "compression_ratio": 3.9453543923320704,
+        "records_per_sec": 730101.7418880011,
+        "blocks_per_sec": 44.56187389453132,
+        "logical_mb_per_sec": 40.88569754572806,
+        "physical_mb_per_sec": 10.362997459794942,
+        "encode_mb_per_sec": 45.95346449421671,
+        "compress_mb_per_sec": 485.87810157083493,
+        "write_mb_per_sec": 544.1440050166833,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 39931875
+        },
+        "compression_time": {
+          "nanos": 8222124
+        },
+        "write_time": {
+          "nanos": 854748
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5370801246556035
+      },
+      "decode_mb_s": 20.085289978659556,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Plain-zstd\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Manual + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 41,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 3994950,
+        "compressed_bytes": 3994950,
+        "physical_bytes_written": 4000474,
+        "compression_ratio": 0.458697644329147,
+        "records_per_sec": 786603.4858527437,
+        "blocks_per_sec": 48.01046666581688,
+        "logical_mb_per_sec": 44.049795207753654,
+        "physical_mb_per_sec": 96.03231181223356,
+        "encode_mb_per_sec": 44.08564359317426,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 2348.0983830562514,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 41623709
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 1703708
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5056152201629173
+      },
+      "decode_mb_s": 20.103104043769402,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Manual-none\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Manual + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 44,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 3994950,
+        "compressed_bytes": 905359,
+        "physical_bytes_written": 910883,
+        "compression_ratio": 2.0145375421431733,
+        "records_per_sec": 740184.5247854068,
+        "blocks_per_sec": 45.1772781241093,
+        "logical_mb_per_sec": 41.45033338798278,
+        "physical_mb_per_sec": 20.575607314761527,
+        "encode_mb_per_sec": 43.27585420916457,
+        "compress_mb_per_sec": 763.4757059754236,
+        "write_mb_per_sec": 878.2405550499051,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 42402583
+        },
+        "compression_time": {
+          "nanos": 5232583
+        },
+        "write_time": {
+          "nanos": 1037168
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5391588176040131
+      },
+      "decode_mb_s": 20.102590466575915,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Manual-lz4\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Manual + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 46,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 3994950,
+        "compressed_bytes": 459582,
+        "physical_bytes_written": 465106,
+        "compression_ratio": 3.9453543923320704,
+        "records_per_sec": 706512.0671303755,
+        "blocks_per_sec": 43.12207440981296,
+        "logical_mb_per_sec": 39.56467575930103,
+        "physical_mb_per_sec": 10.028167770225235,
+        "encode_mb_per_sec": 42.4075848003559,
+        "compress_mb_per_sec": 485.3295611193067,
+        "write_mb_per_sec": 520.4722796973668,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 43270750
+        },
+        "compression_time": {
+          "nanos": 8231417
+        },
+        "write_time": {
+          "nanos": 893623
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5558520773132223
+      },
+      "decode_mb_s": 19.776483600274283,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Manual-zstd\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Automatic + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 41,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 773338,
+        "compressed_bytes": 773338,
+        "physical_bytes_written": 778862,
+        "compression_ratio": 2.35601171966279,
+        "records_per_sec": 787989.8496287974,
+        "blocks_per_sec": 48.09508359550765,
+        "logical_mb_per_sec": 44.12743157921265,
+        "physical_mb_per_sec": 18.72971649968214,
+        "encode_mb_per_sec": 44.59021262950666,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 878.7881181237315,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 41152708
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 886291
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.4962966785631459
+      },
+      "decode_mb_s": 20.24393381584144,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Automatic-none\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Automatic + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 40,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 773338,
+        "compressed_bytes": 521292,
+        "physical_bytes_written": 526816,
+        "compression_ratio": 3.4832047621940108,
+        "records_per_sec": 803127.4126542567,
+        "blocks_per_sec": 49.019007120010784,
+        "logical_mb_per_sec": 44.97513510863837,
+        "physical_mb_per_sec": 12.9119986274678,
+        "encode_mb_per_sec": 45.067505794587625,
+        "compress_mb_per_sec": 774.3051070787413,
+        "write_mb_per_sec": 637.856634330852,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 40716875
+        },
+        "compression_time": {
+          "nanos": 998751
+        },
+        "write_time": {
+          "nanos": 825916
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5119488976850773
+      },
+      "decode_mb_s": 20.277601250456204,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Automatic-lz4\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Automatic + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 44,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 773338,
+        "compressed_bytes": 454635,
+        "physical_bytes_written": 460159,
+        "compression_ratio": 3.9877694449092598,
+        "records_per_sec": 738863.9340170696,
+        "blocks_per_sec": 45.096675660221536,
+        "logical_mb_per_sec": 41.376380304955894,
+        "physical_mb_per_sec": 10.37582058756594,
+        "encode_mb_per_sec": 42.776779475963195,
+        "compress_mb_per_sec": 200.10469207308157,
+        "write_mb_per_sec": 555.6086823704702,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 42897292
+        },
+        "compression_time": {
+          "nanos": 3864667
+        },
+        "write_time": {
+          "nanos": 828207
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5277847157760596
+      },
+      "decode_mb_s": 20.12378188455402,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Automatic-zstd\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Delta + BitPack + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 44,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 1433112,
+        "compressed_bytes": 1433112,
+        "physical_bytes_written": 1438636,
+        "compression_ratio": 1.2755193113476933,
+        "records_per_sec": 737863.6150709995,
+        "blocks_per_sec": 45.03562103704831,
+        "logical_mb_per_sec": 41.320362443975974,
+        "physical_mb_per_sec": 32.394932853127514,
+        "encode_mb_per_sec": 41.7551418616227,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 1276.6110755174734,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 43946875
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 1126918
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.49684188833368226
+      },
+      "decode_mb_s": 19.99808912825026,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Delta + BitPack-none\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Delta + BitPack + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 45,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 1433112,
+        "compressed_bytes": 643708,
+        "physical_bytes_written": 649232,
+        "compression_ratio": 2.8264287650639526,
+        "records_per_sec": 714072.8553489272,
+        "blocks_per_sec": 43.58354830010542,
+        "logical_mb_per_sec": 39.98807989953992,
+        "physical_mb_per_sec": 14.14791711498702,
+        "encode_mb_per_sec": 40.223063203286785,
+        "compress_mb_per_sec": 460.8755887522986,
+        "write_mb_per_sec": 632.9333337232915,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 45620792
+        },
+        "compression_time": {
+          "nanos": 3109542
+        },
+        "write_time": {
+          "nanos": 1025751
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5317197359926562
+      },
+      "decode_mb_s": 19.767997331127315,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Delta + BitPack-lz4\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Delta + BitPack + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 47,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 1433112,
+        "compressed_bytes": 475493,
+        "physical_bytes_written": 481017,
+        "compression_ratio": 3.814850618585206,
+        "records_per_sec": 686740.0077945661,
+        "blocks_per_sec": 41.91528367886756,
+        "logical_mb_per_sec": 38.4574404364957,
+        "physical_mb_per_sec": 10.08098200467892,
+        "encode_mb_per_sec": 40.66251918165652,
+        "compress_mb_per_sec": 208.14735157915285,
+        "write_mb_per_sec": 587.0535469107551,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 45127750
+        },
+        "compression_time": {
+          "nanos": 6885084
+        },
+        "write_time": {
+          "nanos": 819375
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5456143074635276
+      },
+      "decode_mb_s": 19.562402999288157,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-Delta + BitPack-zstd\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "DeltaOfDelta + BitPack + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 43,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 1453592,
+        "compressed_bytes": 1453592,
+        "physical_bytes_written": 1459116,
+        "compression_ratio": 1.2576162553217154,
+        "records_per_sec": 758933.5603093127,
+        "blocks_per_sec": 46.321628436847696,
+        "logical_mb_per_sec": 42.500279377321505,
+        "physical_mb_per_sec": 33.794314599129734,
+        "encode_mb_per_sec": 41.32722467815973,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 1373.12539524799,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 44401917
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 1062624
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5163529708086888
+      },
+      "decode_mb_s": 20.146022344421375,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-DeltaOfDelta + BitPack-none\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "DeltaOfDelta + BitPack + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 45,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 1453592,
+        "compressed_bytes": 724594,
+        "physical_bytes_written": 730118,
+        "compression_ratio": 2.5133033290509204,
+        "records_per_sec": 727970.8561062121,
+        "blocks_per_sec": 44.431814947888924,
+        "logical_mb_per_sec": 40.76636794194788,
+        "physical_mb_per_sec": 16.220233933061383,
+        "encode_mb_per_sec": 40.313787090307436,
+        "compress_mb_per_sec": 521.2888270147873,
+        "write_mb_per_sec": 801.0062523244627,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 45518125
+        },
+        "compression_time": {
+          "nanos": 2788458
+        },
+        "write_time": {
+          "nanos": 911501
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.537439358070465
+      },
+      "decode_mb_s": 19.930854032068595,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-DeltaOfDelta + BitPack-lz4\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "DeltaOfDelta + BitPack + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 46,
+        "records_processed": 32768,
+        "records_read": 0,
+        "logical_input_bytes": 1835008,
+        "semantic_encoded_bytes": 1453592,
+        "compressed_bytes": 563872,
+        "physical_bytes_written": 569396,
+        "compression_ratio": 3.2227272407955097,
+        "records_per_sec": 706116.2275757781,
+        "blocks_per_sec": 43.09791428074818,
+        "logical_mb_per_sec": 39.54250874424358,
+        "physical_mb_per_sec": 12.269889999900444,
+        "encode_mb_per_sec": 42.664435632539586,
+        "compress_mb_per_sec": 202.02807505211953,
+        "write_mb_per_sec": 674.6070392315065,
+        "blocks_completed": 2,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 43010249
+        },
+        "compression_time": {
+          "nanos": 7195000
+        },
+        "write_time": {
+          "nanos": 844041
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.5415975681398496
+      },
+      "decode_mb_s": 19.822146966806148,
+      "verified_records": 32768,
+      "profile_toml": "name = \"databento-mbo-manual-DeltaOfDelta + BitPack-zstd\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    }
+  ],
+  "failures": [],
+  "winner": 8,
+  "profile_toml": "name = \"databento-mbo-manual-Automatic-zstd\"\ninput_format = \"dbn\"\n\n[input]\nrecursive = true\n\n[schema]\nid = \"databento_mbo_v1\"\n\n[[columns]]\nname = \"length\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"rtype\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"publisher_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits16\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"instrument_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"ts_event\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"size\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"low_cardinality\"]\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"flags\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"channel_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"sorted\", \"low_cardinality\"]\nencoding = [\"run_length\"]\n\n[[columns]]\nname = \"action\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits8\"\nhints = [\"low_cardinality\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"ts_recv\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"ts_in_delta\"\nlogical_type = \"signed_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nhints = [\"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[block]\nrow_count = 16384\n\n[segment]\ntarget_size_bytes = 67108864\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n",
+  "reason": "Automatic + zstd selected by max_compression using actual closed dataset bytes, wall-clock ingest and equality-checked decode on 32768 observed records"
+}

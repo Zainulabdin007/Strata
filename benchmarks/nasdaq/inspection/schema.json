@@ -1,0 +1,125 @@
+{
+  "id": "databento_mbo_v1",
+  "fields": [
+    {
+      "name": "length",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits8"
+      },
+      "nullable": false
+    },
+    {
+      "name": "rtype",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits8"
+      },
+      "nullable": false
+    },
+    {
+      "name": "publisher_id",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits16"
+      },
+      "nullable": false
+    },
+    {
+      "name": "instrument_id",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits32"
+      },
+      "nullable": false
+    },
+    {
+      "name": "ts_event",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits64"
+      },
+      "nullable": false
+    },
+    {
+      "name": "order_id",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits64"
+      },
+      "nullable": false
+    },
+    {
+      "name": "price",
+      "logical_type": {
+        "kind": "signed_integer",
+        "width": "bits64"
+      },
+      "nullable": false
+    },
+    {
+      "name": "size",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits32"
+      },
+      "nullable": false
+    },
+    {
+      "name": "flags",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits8"
+      },
+      "nullable": false
+    },
+    {
+      "name": "channel_id",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits8"
+      },
+      "nullable": false
+    },
+    {
+      "name": "action",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits8"
+      },
+      "nullable": false
+    },
+    {
+      "name": "side",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits8"
+      },
+      "nullable": false
+    },
+    {
+      "name": "ts_recv",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits64"
+      },
+      "nullable": false
+    },
+    {
+      "name": "ts_in_delta",
+      "logical_type": {
+        "kind": "signed_integer",
+        "width": "bits32"
+      },
+      "nullable": false
+    },
+    {
+      "name": "sequence",
+      "logical_type": {
+        "kind": "unsigned_integer",
+        "width": "bits32"
+      },
+      "nullable": false
+    }
+  ]
+}

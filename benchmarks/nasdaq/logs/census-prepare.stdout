@@ -1,0 +1,4 @@
+PROFILE balanced: Delta + BitPack + zstd selected by balanced using actual closed dataset bytes, wall-clock ingest and equality-checked decode on 32768 observed records
+PROFILE max_compression: Automatic + zstd selected by max_compression using actual closed dataset bytes, wall-clock ingest and equality-checked decode on 32768 observed records
+PROFILE max_ingest: Automatic + none selected by max_ingest using actual closed dataset bytes, wall-clock ingest and equality-checked decode on 32768 observed records
+PROFILE max_decode: DeltaOfDelta + BitPack + none selected by max_decode using actual closed dataset bytes, wall-clock ingest and equality-checked decode on 32768 observed records

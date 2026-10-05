@@ -1,0 +1,86 @@
+name = "stock-market"
+input_format = "csv"
+
+[input]
+recursive = true
+extensions = ["csv"]
+
+[schema]
+id = "stock_ticks_v1"
+description = "US equity trade/quote style events"
+
+[[columns]]
+name = "seq"
+logical_type = "unsigned_integer"
+width = "bits64"
+nullable = false
+hints = ["monotonic", "sorted"]
+encoding = ["delta", "zigzag", "bitpack"]
+expected_min = 0
+
+[[columns]]
+name = "ts"
+logical_type = "timestamp"
+unit = "microseconds"
+nullable = false
+hints = ["monotonic", "sorted", "delta_friendly"]
+encoding = ["delta_of_delta", "zigzag", "bitpack"]
+
+[[columns]]
+name = "symbol"
+logical_type = "categorical_string"
+max_bytes = 16
+nullable = false
+hints = ["low_cardinality"]
+encoding = ["dictionary", "bitpack"]
+
+[[columns]]
+name = "side"
+logical_type = "enum"
+variants = ["buy", "sell"]
+nullable = false
+hints = ["low_cardinality"]
+encoding = ["bitpack"]
+
+[[columns]]
+name = "price"
+logical_type = "fixed_decimal"
+precision = 18
+scale = 8
+width = "bits64"
+nullable = false
+hints = ["fixed_precision"]
+encoding = ["frame_of_reference", "bitpack"]
+expected_min = 0
+expected_max = 100000000000000
+
+[[columns]]
+name = "size"
+logical_type = "unsigned_integer"
+width = "bits32"
+nullable = false
+encoding = ["varint"]
+expected_min = 0
+
+[[columns]]
+name = "is_implied"
+logical_type = "boolean"
+nullable = false
+encoding = ["bitpack"]
+
+[[columns]]
+name = "payload"
+logical_type = "binary"
+max_bytes = 64
+nullable = true
+encoding = ["plain"]
+
+[block]
+row_count = 65536
+
+[segment]
+target_size_bytes = 268435456
+
+[compression]
+codec = "zstd"
+level = 3

@@ -1,0 +1,15 @@
+[package]
+name = "strata-query"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+description = "Typed query engine for Strata datasets (not SQL)"
+
+[dependencies]
+strata-core = { workspace = true }
+strata-storage = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }

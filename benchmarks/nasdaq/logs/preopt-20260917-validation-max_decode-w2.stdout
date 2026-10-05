@@ -1,0 +1,1 @@
+PASS preopt-20260917-validation-max_decode-w2: 200000 records, 11200000 logical bytes, 8368331 physical bytes; every record verified

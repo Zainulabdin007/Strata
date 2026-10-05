@@ -1,0 +1,101 @@
+{
+  "canonical_metrics": {
+    "active_workers": 0,
+    "blocks_completed": 16,
+    "blocks_per_sec": 26.48744598526884,
+    "compress_mb_per_sec": 8846.309006661822,
+    "compressed_bytes": 10180463,
+    "compression_ratio": 4.651824824969655,
+    "compression_time": {
+      "nanos": 1526459
+    },
+    "current_input_file": null,
+    "elapsed": 604,
+    "encode_mb_per_sec": 62.036660474356786,
+    "encode_time": {
+      "nanos": 763922794
+    },
+    "errors": 0,
+    "files_completed": 0,
+    "files_seen": 0,
+    "live": false,
+    "logical_input_bytes": 47391219,
+    "logical_mb_per_sec": 78.45452208990915,
+    "parse_time": {
+      "nanos": 0
+    },
+    "physical_bytes_written": 10187662,
+    "physical_mb_per_sec": 16.865321683823495,
+    "queue_depth_encode": 0,
+    "queue_depth_parse": 0,
+    "queue_depth_write": 0,
+    "records_per_sec": 1655465.3740793027,
+    "records_processed": 1000000,
+    "records_read": 0,
+    "segments_completed": 1,
+    "semantic_encoded_bytes": 13503528,
+    "source_input_bytes": 0,
+    "total_files": 0,
+    "worker_count": 2,
+    "worker_utilization": 0.6339922631825743,
+    "write_mb_per_sec": 3244.8658677389813,
+    "write_time": {
+      "nanos": 3139625
+    }
+  },
+  "decode_wall_seconds": 0.80486225,
+  "decoded_records": 1000000,
+  "encode_wall_seconds": 0.604059917,
+  "format": "strata",
+  "generator": "market-v2",
+  "metrics": {
+    "compression_ratio": 4.651824824969655,
+    "decode_mb_s": 58.881155129340456,
+    "disk_mb_s": 16.865321683823495,
+    "encode_mb_s": 62.036660474356786,
+    "logical_gb_s": 0.07845452208990915,
+    "query_ms": 89.11225,
+    "records_per_sec": 1655465.3740793027,
+    "workers": 2
+  },
+  "profile": "balanced",
+  "profile_toml": "name = \"bench-market-Automatic-lz4\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n",
+  "query": {
+    "elapsed_ms": 89.11225,
+    "first": 500000,
+    "last": 500999,
+    "rows": 1000,
+    "stats": {
+      "batches_returned": 1,
+      "blocks_scanned": 16,
+      "blocks_skipped": 0,
+      "rows_examined": 1000000,
+      "rows_returned": 1000
+    },
+    "text": "select sequence where sequence between 500000 and 500999"
+  },
+  "records": 1000000,
+  "release_build": true,
+  "seed": 42,
+  "sizes": {
+    "blocks": 16,
+    "compression_ratio": 4.651824824969655,
+    "logical_bytes": 47391219,
+    "physical_bytes": 10187662,
+    "records": 1000000,
+    "segments": 1,
+    "storage_saved_bytes": 37203557
+  },
+  "tag": "baseline",
+  "verified_records": 1000000,
+  "process_usage": {
+    "process_wall_seconds": 2.931797832949087,
+    "peak_rss_bytes": 565411840,
+    "time_wall_seconds": 2.92,
+    "user_seconds": 3.73,
+    "system_seconds": 0.08,
+    "cpu_percent_of_one_core": 130.4794520547945
+  },
+  "environment": "baseline-environment.json",
+  "timing_valid": true
+}

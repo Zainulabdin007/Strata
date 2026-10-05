@@ -1,0 +1,17 @@
+[package]
+name = "strata-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+description = "Core schemas, logical types, records, configuration, and errors for Strata"
+
+[dependencies]
+serde = { workspace = true }
+thiserror = { workspace = true }
+indexmap = { workspace = true }
+toml = { workspace = true }
+
+[dev-dependencies]
+serde_json = { workspace = true }

@@ -1,0 +1,147 @@
+{
+  "baseline_lz4_auto_note": "Compare against strata-bench --suite compare lz4 auto plans on same seed",
+  "failures": [],
+  "records": 100000,
+  "release_build": true,
+  "seed": 42,
+  "top": [
+    {
+      "compressed_bytes": 370905,
+      "decode_ms": 99,
+      "encode_ms": 102,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd9 + b131072",
+      "physical_bytes": 374194,
+      "ratio_logical_over_physical": 14.003952495229747,
+      "semantic_bytes": 1375582,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 370905,
+      "decode_ms": 93,
+      "encode_ms": 98,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd12 + b131072",
+      "physical_bytes": 374194,
+      "ratio_logical_over_physical": 14.003952495229747,
+      "semantic_bytes": 1375582,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 370905,
+      "decode_ms": 92,
+      "encode_ms": 97,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd15 + b131072",
+      "physical_bytes": 374194,
+      "ratio_logical_over_physical": 14.003952495229747,
+      "semantic_bytes": 1375582,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 370907,
+      "decode_ms": 93,
+      "encode_ms": 98,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd6 + b131072",
+      "physical_bytes": 374196,
+      "ratio_logical_over_physical": 14.003877647008519,
+      "semantic_bytes": 1375582,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371153,
+      "decode_ms": 93,
+      "encode_ms": 104,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd19 + b131072",
+      "physical_bytes": 374442,
+      "ratio_logical_over_physical": 13.99467741332436,
+      "semantic_bytes": 1375582,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371024,
+      "decode_ms": 105,
+      "encode_ms": 65,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd9 + b65536",
+      "physical_bytes": 374580,
+      "ratio_logical_over_physical": 13.98952159752256,
+      "semantic_bytes": 1445090,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371024,
+      "decode_ms": 92,
+      "encode_ms": 66,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd12 + b65536",
+      "physical_bytes": 374580,
+      "ratio_logical_over_physical": 13.98952159752256,
+      "semantic_bytes": 1445090,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371024,
+      "decode_ms": 93,
+      "encode_ms": 67,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd15 + b65536",
+      "physical_bytes": 374580,
+      "ratio_logical_over_physical": 13.98952159752256,
+      "semantic_bytes": 1445090,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371028,
+      "decode_ms": 93,
+      "encode_ms": 61,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd6 + b65536",
+      "physical_bytes": 374584,
+      "ratio_logical_over_physical": 13.989372210238558,
+      "semantic_bytes": 1445090,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371302,
+      "decode_ms": 94,
+      "encode_ms": 95,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd3 + b131072",
+      "physical_bytes": 374591,
+      "ratio_logical_over_physical": 13.989110790168477,
+      "semantic_bytes": 1375582,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371300,
+      "decode_ms": 92,
+      "encode_ms": 68,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd19 + b65536",
+      "physical_bytes": 374856,
+      "ratio_logical_over_physical": 13.979221354333397,
+      "semantic_bytes": 1445090,
+      "verified_records": 100000
+    },
+    {
+      "compressed_bytes": 371539,
+      "decode_ms": 93,
+      "encode_ms": 66,
+      "logical_bytes": 5240195,
+      "name": "max-semantic + zstd3 + b65536",
+      "physical_bytes": 375095,
+      "ratio_logical_over_physical": 13.970314187072608,
+      "semantic_bytes": 1445090,
+      "verified_records": 100000
+    }
+  ],
+  "winner": "max-semantic + zstd9 + b131072",
+  "winner_compressed_bytes": 370905,
+  "winner_physical_bytes": 374194,
+  "winner_profile": "examples/profiles/bench-market-max-compression.toml",
+  "winner_ratio_logical_over_physical": 14.003952495229747,
+  "winner_semantic_bytes": 1375582
+}

@@ -1,0 +1,17 @@
+[package]
+name = "strata-format"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+description = "Versioned on-disk format, segment metadata, and block metadata for Strata"
+
+[dependencies]
+strata-core = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+crc32fast = { workspace = true }
+
+[dev-dependencies]
+serde_json = { workspace = true }

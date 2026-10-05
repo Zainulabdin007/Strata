@@ -1,0 +1,9 @@
+RUN windows-a-20260917-windows-max_compression-w2
+PASS windows-a-20260917-windows-max_compression-w2: 1048576 verified rows; 16051194 bytes; RSS=77119488
+RUN windows-a-20260917-windows-real_auto_z1_b64k-w2
+PASS windows-a-20260917-windows-real_auto_z1_b64k-w2: 1048576 verified rows; 16374290 bytes; RSS=139821056
+RUN windows-a-20260917-windows-real_auto_z3_b64k-w2
+PASS windows-a-20260917-windows-real_auto_z3_b64k-w2: 1048576 verified rows; 15482865 bytes; RSS=200065024
+RUN windows-a-20260917-windows-real_auto_z9_b131k-w2
+PASS windows-a-20260917-windows-real_auto_z9_b131k-w2: 1048576 verified rows; 14836489 bytes; RSS=282771456
+ALL REQUESTED REAL-DATA RUNS COMPLETED

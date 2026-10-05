@@ -1,0 +1,88 @@
+name = "bench-market-Automatic-zstd"
+input_format = "csv"
+
+[input]
+recursive = true
+extensions = ["csv"]
+
+[schema]
+id = "bench_market_events"
+description = "strata-bench market generator schema"
+
+[[columns]]
+name = "timestamp"
+logical_type = "timestamp"
+nullable = false
+unit = "nanoseconds"
+hints = ["monotonic", "sorted"]
+encoding = ["frame_of_reference", "bitpack"]
+
+[[columns]]
+name = "sequence"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits64"
+hints = ["monotonic", "sorted", "delta_friendly"]
+encoding = ["delta_of_delta", "zigzag", "bitpack"]
+
+[[columns]]
+name = "order_id"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits64"
+encoding = ["frame_of_reference", "bitpack"]
+
+[[columns]]
+name = "symbol"
+logical_type = "categorical_string"
+nullable = false
+max_bytes = 8
+hints = ["low_cardinality"]
+encoding = ["dictionary", "bitpack"]
+
+[[columns]]
+name = "price"
+logical_type = "fixed_decimal"
+nullable = false
+width = "bits64"
+precision = 18
+scale = 4
+hints = ["fixed_precision"]
+encoding = ["frame_of_reference", "bitpack"]
+
+[[columns]]
+name = "quantity"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits32"
+encoding = ["bitpack"]
+
+[[columns]]
+name = "side"
+logical_type = "enum"
+nullable = false
+variants = ["buy", "sell"]
+hints = ["low_cardinality"]
+encoding = ["dictionary", "bitpack"]
+
+[[columns]]
+name = "event_type"
+logical_type = "enum"
+nullable = false
+variants = ["new", "cancel", "fill", "replace"]
+hints = ["low_cardinality"]
+encoding = ["enum_bitpack"]
+
+[block]
+row_count = 65536
+
+[segment]
+target_size_bytes = 268435456
+
+[compression]
+codec = "zstd"
+level = 3
+
+[durability]
+mode = "fast"
+sync_every_blocks = 16

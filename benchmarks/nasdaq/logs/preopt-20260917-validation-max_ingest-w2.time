@@ -1,0 +1,20 @@
+preopt-20260917-validation-max_ingest-w2: ingest complete, verifying every decoded record
+preopt-20260917-validation-max_ingest-w2: verifying unbounded filtered query against source hash
+        0.91 real         1.10 user         0.04 sys
+           144982016  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               12375  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   3  voluntary context switches
+                 432  involuntary context switches
+         14294559940  instructions retired
+          3276529928  cycles elapsed
+            83542472  peak memory footprint

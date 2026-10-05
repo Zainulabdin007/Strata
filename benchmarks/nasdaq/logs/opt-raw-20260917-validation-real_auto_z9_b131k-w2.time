@@ -1,0 +1,20 @@
+opt-raw-20260917-validation-real_auto_z9_b131k-w2: ingest complete, verifying every decoded record
+opt-raw-20260917-validation-real_auto_z9_b131k-w2: verifying unbounded filtered query against source hash
+        0.24 real         0.30 user         0.02 sys
+           134430720  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               10177  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 139  involuntary context switches
+          3780834989  instructions retired
+           935609862  cycles elapsed
+           109216224  peak memory footprint

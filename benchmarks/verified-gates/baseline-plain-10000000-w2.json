@@ -1,0 +1,101 @@
+{
+  "canonical_metrics": {
+    "active_workers": 0,
+    "blocks_completed": 153,
+    "blocks_per_sec": 28.41977462510948,
+    "compress_mb_per_sec": 0.0,
+    "compressed_bytes": 643955966,
+    "compression_ratio": 0.7358682125277716,
+    "compression_time": {
+      "nanos": 0
+    },
+    "current_input_file": null,
+    "elapsed": 5383,
+    "encode_mb_per_sec": 64.44224290152606,
+    "encode_time": {
+      "nanos": 7353880912
+    },
+    "errors": 0,
+    "files_completed": 0,
+    "files_seen": 0,
+    "live": false,
+    "logical_input_bytes": 473900580,
+    "logical_mb_per_sec": 88.02710900855335,
+    "parse_time": {
+      "nanos": 0
+    },
+    "physical_bytes_written": 644001972,
+    "physical_mb_per_sec": 119.62346995010499,
+    "queue_depth_encode": 0,
+    "queue_depth_parse": 0,
+    "queue_depth_write": 0,
+    "records_per_sec": 1857501.6094842795,
+    "records_processed": 10000000,
+    "records_read": 0,
+    "segments_completed": 3,
+    "semantic_encoded_bytes": 643955966,
+    "source_input_bytes": 0,
+    "total_files": 0,
+    "worker_count": 2,
+    "worker_utilization": 0.6868544189072432,
+    "write_mb_per_sec": 4066.6359194570623,
+    "write_time": {
+      "nanos": 158362338
+    }
+  },
+  "decode_wall_seconds": 8.279604458,
+  "decoded_records": 10000000,
+  "encode_wall_seconds": 5.383575625,
+  "format": "strata",
+  "generator": "market-v2",
+  "metrics": {
+    "compression_ratio": 0.7358682125277716,
+    "decode_mb_s": 57.2371038259084,
+    "disk_mb_s": 119.62346995010499,
+    "encode_mb_s": 64.44224290152606,
+    "logical_gb_s": 0.08802710900855336,
+    "query_ms": 1088.3506670000002,
+    "records_per_sec": 1857501.6094842795,
+    "workers": 2
+  },
+  "profile": "plain",
+  "profile_toml": "\nname = \"bench-market\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nunit = \"nanoseconds\"\nnullable = false\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nwidth = \"bits64\"\nnullable = false\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nwidth = \"bits64\"\nnullable = false\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nmax_bytes = 8\nnullable = false\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nprecision = 18\nscale = 4\nwidth = \"bits64\"\nnullable = false\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nwidth = \"bits32\"\nnullable = false\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nvariants = [\"buy\", \"sell\"]\nnullable = false\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nnullable = false\nencoding = [\"plain\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"none\"\nlevel = 3",
+  "query": {
+    "elapsed_ms": 1088.3506670000002,
+    "first": 5000000,
+    "last": 5000999,
+    "rows": 1000,
+    "stats": {
+      "batches_returned": 1,
+      "blocks_scanned": 153,
+      "blocks_skipped": 0,
+      "rows_examined": 10000000,
+      "rows_returned": 1000
+    },
+    "text": "select sequence where sequence between 5000000 and 5000999"
+  },
+  "records": 10000000,
+  "release_build": true,
+  "seed": 42,
+  "sizes": {
+    "blocks": 153,
+    "compression_ratio": 0.7358682125277716,
+    "logical_bytes": 473900580,
+    "physical_bytes": 644001972,
+    "records": 10000000,
+    "segments": 3,
+    "storage_saved_bytes": -170101392
+  },
+  "tag": "baseline",
+  "verified_records": 10000000,
+  "process_usage": {
+    "process_wall_seconds": 29.599352124962024,
+    "peak_rss_bytes": 1207484416,
+    "time_wall_seconds": 29.59,
+    "user_seconds": 37.99,
+    "system_seconds": 0.88,
+    "cpu_percent_of_one_core": 131.3619466035823
+  },
+  "environment": "baseline-environment.json",
+  "timing_valid": true
+}

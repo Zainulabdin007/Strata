@@ -1,0 +1,19 @@
+preopt-20260917-validation-fixed-w2: ingest complete, verifying every decoded record
+        0.83 real         0.80 user         0.01 sys
+            59834368  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3864  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   5  voluntary context switches
+                 280  involuntary context switches
+         12223153854  instructions retired
+          2377700233  cycles elapsed
+            52445616  peak memory footprint

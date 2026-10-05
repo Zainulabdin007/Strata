@@ -1,0 +1,88 @@
+{
+  "canonical_metrics": {
+    "active_workers": 0,
+    "blocks_completed": 0,
+    "blocks_per_sec": 0.0,
+    "compress_mb_per_sec": 0.0,
+    "compressed_bytes": 0,
+    "compression_ratio": 4.706517909790034,
+    "compression_time": {
+      "nanos": 0
+    },
+    "current_input_file": null,
+    "elapsed": 112805,
+    "encode_mb_per_sec": 0.0,
+    "encode_time": {
+      "nanos": 0
+    },
+    "errors": 0,
+    "files_completed": 0,
+    "files_seen": 0,
+    "live": false,
+    "logical_input_bytes": 4739017169,
+    "logical_mb_per_sec": 42.010396525008474,
+    "parse_time": {
+      "nanos": 0
+    },
+    "physical_bytes_written": 1006905160,
+    "physical_mb_per_sec": 8.926003752715483,
+    "queue_depth_encode": 0,
+    "queue_depth_parse": 0,
+    "queue_depth_write": 0,
+    "records_per_sec": 886479.095281971,
+    "records_processed": 100000000,
+    "records_read": 0,
+    "segments_completed": 0,
+    "semantic_encoded_bytes": 0,
+    "source_input_bytes": 0,
+    "total_files": 0,
+    "worker_count": 0,
+    "worker_utilization": 0.0,
+    "write_mb_per_sec": 0.0,
+    "write_time": {
+      "nanos": 0
+    }
+  },
+  "decode_wall_seconds": 6.277988875,
+  "decoded_records": 100000000,
+  "encode_wall_seconds": 112.805818833,
+  "format": "parquet",
+  "generator": "market-v2",
+  "metrics": {
+    "compression_ratio": 4.706517909790034,
+    "decode_mb_s": 754.8623075570518,
+    "disk_mb_s": 8.926003752715483,
+    "encode_mb_s": 0.0,
+    "logical_gb_s": 0.04201039652500847,
+    "query_ms": null,
+    "records_per_sec": 886479.095281971,
+    "workers": 2
+  },
+  "profile": "parquet",
+  "profile_toml": null,
+  "query": null,
+  "records": 100000000,
+  "release_build": true,
+  "seed": 42,
+  "sizes": {
+    "blocks": 0,
+    "compression_ratio": 4.706517909790034,
+    "logical_bytes": 4739017169,
+    "physical_bytes": 1006905160,
+    "records": 100000000,
+    "segments": 0,
+    "storage_saved_bytes": 3732112009
+  },
+  "tag": "baseline",
+  "verified_records": 0,
+  "process_usage": {
+    "process_wall_seconds": 119.09910016600043,
+    "peak_rss_bytes": 160268288,
+    "time_wall_seconds": 119.09,
+    "user_seconds": 116.14,
+    "system_seconds": 0.79,
+    "cpu_percent_of_one_core": 98.18624569653204
+  },
+  "environment": "baseline-environment.json",
+  "timing_valid": true
+}

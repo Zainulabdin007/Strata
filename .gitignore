@@ -1,0 +1,48 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# Node / Lab
+strata-lab/node_modules/
+strata-lab/dist/
+strata-lab/tsconfig.tsbuildinfo
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Strata local outputs
+/tmp-strata*/
+*.strata
+/datasets/
+**/.ingest-progress.json
+**/ingest-errors.json
+
+# Local bench corpora and heavy artifacts (too large for GitHub)
+benchmarks/nasdaq/sources/
+benchmarks/nasdaq/uncompressed/
+benchmarks/nasdaq/datasets/
+benchmarks/nasdaq/binaries/
+benchmarks/nasdaq/samples/
+benchmarks/nasdaq/representative-windows/
+benchmarks/nasdaq/*.metadata.dbn
+benchmarks/work-gates/
+benchmarks/work/
+benchmarks/tune/scratch-*/
+
+# Vendor / generated binary market data
+*.dbn
+*.dbn.zst
+*.dbn.zstd
+
+# Crash / scratch
+/tmp/
+*.log

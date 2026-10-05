@@ -1,0 +1,66 @@
+{
+  "suite": "query",
+  "meta": {
+    "git_commit": null,
+    "rustc_version": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo_profile": "release",
+    "debug_assertions": false,
+    "compiler_settings": "opt-level>=1 (release/no debug_assertions)",
+    "os": "macos",
+    "arch": "aarch64",
+    "dataset_seed": 42,
+    "workload": "market",
+    "worker_count": 18,
+    "block_size": 65536,
+    "segment_size_bytes": 268435456,
+    "record_count": 100000,
+    "size_label": "100k",
+    "compression_codec": "lz4",
+    "started_unix_secs": 1789448849
+  },
+  "metrics": {
+    "full_scan": {
+      "elapsed_ms": 151,
+      "records": 100000,
+      "records_per_sec": 659634.9580142349
+    },
+    "queries": [
+      {
+        "blocks_scanned": 2,
+        "blocks_skipped": 0,
+        "latency_ms_p50": 37.421583,
+        "latency_ms_p95": 38.990125,
+        "latency_ms_p99": 38.990125,
+        "name": "symbol_eq",
+        "query": "select timestamp, price, quantity where symbol == AAPL",
+        "rows": 10007,
+        "samples": 11,
+        "scan_rows_per_sec_at_p50": 267412.5250126378
+      },
+      {
+        "blocks_scanned": 2,
+        "blocks_skipped": 0,
+        "latency_ms_p50": 24.406375,
+        "latency_ms_p95": 24.947,
+        "latency_ms_p99": 24.947,
+        "name": "symbol_time",
+        "query": "select timestamp, price where symbol == AAPL and timestamp between 1700000000000000000 and 1700000000100000000",
+        "rows": 10007,
+        "samples": 11,
+        "scan_rows_per_sec_at_p50": 410015.8257832226
+      },
+      {
+        "blocks_scanned": 1,
+        "blocks_skipped": 1,
+        "latency_ms_p50": 15.328375,
+        "latency_ms_p95": 15.743125000000001,
+        "latency_ms_p99": 15.743125000000001,
+        "name": "sequence_range",
+        "query": "select sequence, symbol, price where sequence between 1000 and 5000",
+        "rows": 4001,
+        "samples": 11,
+        "scan_rows_per_sec_at_p50": 261019.18827011995
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "archive": "/Users/zain/Downloads/XNAS-20260915-AWFMJJN8F5.zip",
+  "source_files": [
+    {
+      "path": "/Users/zain/Strata/benchmarks/nasdaq/sources/xnas-itch-20260911.mbo.dbn.zst",
+      "bytes": 11391551884,
+      "sha256": "2029814878f2b5d90d2230fbb7b8ff9741c6a5ea925ba5f7f323043c0ffb4a29"
+    },
+    {
+      "path": "/Users/zain/Strata/benchmarks/nasdaq/sources/xnas-itch-20260914.mbo.dbn.zst",
+      "bytes": 22926298450,
+      "sha256": "52c19cfa036c6106015a4dfa88f036a08ec528610fa9e7ae5d1e9c4d8ca534a3"
+    }
+  ],
+  "vendor_transport_bytes": 34317850334,
+  "verified_utc": "2026-09-16T15:45:38.114836+00:00",
+  "status": "exact transport sizes and SHA-256 verified; decompressed byte/record totals not yet measured"
+}

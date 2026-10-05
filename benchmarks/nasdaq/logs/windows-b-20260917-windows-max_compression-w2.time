@@ -1,0 +1,20 @@
+windows-b-20260917-windows-max_compression-w2: ingest complete, verifying every decoded record
+windows-b-20260917-windows-max_compression-w2: verifying unbounded filtered query against source hash
+        0.99 real         1.28 user         0.04 sys
+            67616768  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                9269  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  12  voluntary context switches
+                 589  involuntary context switches
+         15936859541  instructions retired
+          3897087034  cycles elapsed
+            39190960  peak memory footprint

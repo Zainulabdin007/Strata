@@ -1,0 +1,21 @@
+opt-raw-20260917-1gb-fixed-w2: file 1/2, 7847936 records
+opt-raw-20260917-1gb-fixed-w2: file 2/2, 15711547 records
+opt-raw-20260917-1gb-fixed-w2: ingest complete, verifying every decoded record
+       34.51 real        33.97 user         0.45 sys
+            25395200  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1749  page reclaims
+                  12  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  27  voluntary context switches
+                7963  involuntary context switches
+        537500213282  instructions retired
+         98830202479  cycles elapsed
+            19448192  peak memory footprint

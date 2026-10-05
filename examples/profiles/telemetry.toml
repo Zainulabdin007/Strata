@@ -1,0 +1,83 @@
+name = "telemetry"
+input_format = "jsonl"
+
+[input]
+recursive = true
+extensions = ["jsonl", "ndjson"]
+
+[schema]
+id = "telemetry_events_v1"
+description = "Device / service telemetry event stream"
+
+[[columns]]
+name = "event_id"
+logical_type = "unsigned_integer"
+width = "bits64"
+nullable = false
+hints = ["monotonic"]
+encoding = ["delta", "zigzag", "bitpack"]
+expected_min = 0
+
+[[columns]]
+name = "ts"
+logical_type = "timestamp"
+unit = "milliseconds"
+nullable = false
+hints = ["monotonic", "sorted", "delta_friendly"]
+encoding = ["delta_of_delta", "zigzag", "bitpack"]
+
+[[columns]]
+name = "device_id"
+logical_type = "categorical_string"
+max_bytes = 64
+nullable = false
+hints = ["low_cardinality"]
+encoding = ["dictionary", "bitpack"]
+
+[[columns]]
+name = "metric"
+logical_type = "categorical_string"
+max_bytes = 32
+nullable = false
+hints = ["low_cardinality"]
+encoding = ["dictionary", "bitpack"]
+
+[[columns]]
+name = "value"
+logical_type = "fixed_decimal"
+precision = 18
+scale = 6
+width = "bits64"
+nullable = false
+hints = ["fixed_precision"]
+encoding = ["frame_of_reference", "bitpack"]
+
+[[columns]]
+name = "severity"
+logical_type = "enum"
+variants = ["debug", "info", "warn", "error"]
+nullable = false
+hints = ["low_cardinality"]
+encoding = ["bitpack"]
+
+[[columns]]
+name = "ok"
+logical_type = "boolean"
+nullable = false
+encoding = ["bitpack"]
+
+[[columns]]
+name = "attrs"
+logical_type = "binary"
+max_bytes = 256
+nullable = true
+encoding = ["plain"]
+
+[block]
+row_count = 32768
+
+[segment]
+target_size_bytes = 134217728
+
+[compression]
+codec = "lz4"

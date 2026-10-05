@@ -1,0 +1,51 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/strata-core",
+    "crates/strata-format",
+    "crates/strata-codec",
+    "crates/strata-storage",
+    "crates/strata-metrics",
+    "crates/strata-input",
+    "crates/strata-analyze",
+    "crates/strata-optimize",
+    "crates/strata-engine",
+    "crates/strata-api",
+    "crates/strata-query",
+    "crates/strata-cli",
+    "crates/strata-bench",
+    "tests",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Strata Contributors"]
+repository = "https://github.com/strata-storage/strata"
+rust-version = "1.89"
+
+[workspace.dependencies]
+strata-core = { path = "crates/strata-core" }
+strata-format = { path = "crates/strata-format" }
+strata-codec = { path = "crates/strata-codec" }
+strata-storage = { path = "crates/strata-storage" }
+strata-metrics = { path = "crates/strata-metrics" }
+strata-input = { path = "crates/strata-input" }
+strata-analyze = { path = "crates/strata-analyze" }
+strata-optimize = { path = "crates/strata-optimize" }
+strata-query = { path = "crates/strata-query" }
+strata-engine = { path = "crates/strata-engine" }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+toml = "0.8"
+thiserror = "2"
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+indexmap = { version = "2", features = ["serde"] }
+csv = "1"
+crc32fast = "1"
+zstd = "0.13"
+lz4_flex = "0.11"
+crossbeam-channel = "0.5"

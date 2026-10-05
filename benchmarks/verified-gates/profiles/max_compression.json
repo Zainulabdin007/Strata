@@ -1,0 +1,767 @@
+{
+  "release_build": true,
+  "sample_records": 16384,
+  "options": {
+    "block_rows": null,
+    "segment_bytes": null,
+    "workers": 2,
+    "codec": null,
+    "pipelines": {}
+  },
+  "trials": [
+    {
+      "name": "Plain + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 11,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 1055207,
+        "compressed_bytes": 1055207,
+        "physical_bytes_written": 1058493,
+        "compression_ratio": 0.733417226188553,
+        "records_per_sec": 1406060.3397612993,
+        "blocks_per_sec": 85.81911253425899,
+        "logical_mb_per_sec": 66.62283598525833,
+        "physical_mb_per_sec": 90.83892988372538,
+        "encode_mb_per_sec": 108.38820921831096,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 2986.9122431760525,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 7162375
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 354377
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.3103916389528146
+      },
+      "decode_mb_s": 56.5863073173466,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Plain-none\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Plain + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 1055207,
+        "compressed_bytes": 413736,
+        "physical_bytes_written": 417022,
+        "compression_ratio": 1.8615732503321167,
+        "records_per_sec": 1265784.645098986,
+        "blocks_per_sec": 77.25736359246741,
+        "logical_mb_per_sec": 59.97620473201352,
+        "physical_mb_per_sec": 32.21802028005794,
+        "encode_mb_per_sec": 105.48501936272845,
+        "compress_mb_per_sec": 1183.244728865844,
+        "write_mb_per_sec": 1660.88639658441,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 7359500
+        },
+        "compression_time": {
+          "nanos": 891791
+        },
+        "write_time": {
+          "nanos": 251084
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.3194447126991791
+      },
+      "decode_mb_s": 52.78330117881031,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Plain-lz4\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Plain + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 13,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 1055207,
+        "compressed_bytes": 208190,
+        "physical_bytes_written": 211476,
+        "compression_ratio": 3.6709461120883695,
+        "records_per_sec": 1172529.6009334435,
+        "blocks_per_sec": 71.56552740072287,
+        "logical_mb_per_sec": 55.557535535146975,
+        "physical_mb_per_sec": 15.134391472595269,
+        "encode_mb_per_sec": 100.84277146706977,
+        "compress_mb_per_sec": 670.1854557002223,
+        "write_mb_per_sec": 943.5627440044617,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 7698291
+        },
+        "compression_time": {
+          "nanos": 1574500
+        },
+        "write_time": {
+          "nanos": 224125
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.33218631684291827
+      },
+      "decode_mb_s": 52.78898651241351,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Plain-zstd\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"plain\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Manual + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 277613,
+        "compressed_bytes": 277613,
+        "physical_bytes_written": 280899,
+        "compression_ratio": 2.763687303977586,
+        "records_per_sec": 1303982.6865736262,
+        "blocks_per_sec": 79.58878702231605,
+        "logical_mb_per_sec": 61.78612837480334,
+        "physical_mb_per_sec": 22.356410685781558,
+        "encode_mb_per_sec": 95.90376478581798,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 1180.0396568672757,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8094750
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 238042
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.32293814900676376
+      },
+      "decode_mb_s": 54.173459717161144,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Manual-none\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Manual + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 277613,
+        "compressed_bytes": 179624,
+        "physical_bytes_written": 182910,
+        "compression_ratio": 4.244256738286589,
+        "records_per_sec": 1265422.0414986447,
+        "blocks_per_sec": 77.23523202506377,
+        "logical_mb_per_sec": 59.959023620001425,
+        "physical_mb_per_sec": 14.127096289704411,
+        "encode_mb_per_sec": 97.33314526619337,
+        "compress_mb_per_sec": 930.2854730125965,
+        "write_mb_per_sec": 838.2369115706115,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 7975875
+        },
+        "compression_time": {
+          "nanos": 298417
+        },
+        "write_time": {
+          "nanos": 218208
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.3199244345936913
+      },
+      "decode_mb_s": 52.559204145282024,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Manual-lz4\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Manual + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 13,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 277613,
+        "compressed_bytes": 142596,
+        "physical_bytes_written": 145882,
+        "compression_ratio": 5.32154069727588,
+        "records_per_sec": 1211763.3345738917,
+        "blocks_per_sec": 73.96016446373851,
+        "logical_mb_per_sec": 57.41653299599609,
+        "physical_mb_per_sec": 10.789456712299103,
+        "encode_mb_per_sec": 93.62711559421163,
+        "compress_mb_per_sec": 402.6539687696712,
+        "write_mb_per_sec": 660.5957415977613,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8291583
+        },
+        "compression_time": {
+          "nanos": 689458
+        },
+        "write_time": {
+          "nanos": 220834
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.3324447635907719
+      },
+      "decode_mb_s": 54.33223035885292,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Manual-zstd\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Automatic + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 176483,
+        "compressed_bytes": 176483,
+        "physical_bytes_written": 179769,
+        "compression_ratio": 4.318414187095661,
+        "records_per_sec": 1349180.6058252421,
+        "blocks_per_sec": 82.34744908601331,
+        "logical_mb_per_sec": 63.927724632106596,
+        "physical_mb_per_sec": 14.803518574743528,
+        "encode_mb_per_sec": 99.71426061240659,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 863.754954954955,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 7785416
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 208125
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.3210160901151193
+      },
+      "decode_mb_s": 53.439135410482116,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Automatic-none\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Automatic + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 176483,
+        "compressed_bytes": 155644,
+        "physical_bytes_written": 158930,
+        "compression_ratio": 4.884647329012773,
+        "records_per_sec": 1293660.9586561464,
+        "blocks_per_sec": 78.95879874610269,
+        "logical_mb_per_sec": 61.297057766178206,
+        "physical_mb_per_sec": 12.5489218847181,
+        "encode_mb_per_sec": 93.93393429729568,
+        "compress_mb_per_sec": 3699.2328330678297,
+        "write_mb_per_sec": 658.8919107160624,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8264500
+        },
+        "compression_time": {
+          "nanos": 47708
+        },
+        "write_time": {
+          "nanos": 241208
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.32850314725823865
+      },
+      "decode_mb_s": 54.67694962407339,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Automatic-lz4\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Automatic + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 13,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 176483,
+        "compressed_bytes": 147827,
+        "physical_bytes_written": 151113,
+        "compression_ratio": 5.1373276951685165,
+        "records_per_sec": 1250603.4902248895,
+        "blocks_per_sec": 76.33077943267148,
+        "logical_mb_per_sec": 59.25688169683323,
+        "physical_mb_per_sec": 11.534573072409286,
+        "encode_mb_per_sec": 94.3086011618303,
+        "compress_mb_per_sec": 451.4116605875823,
+        "write_mb_per_sec": 674.9852596973325,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8231667
+        },
+        "compression_time": {
+          "nanos": 390958
+        },
+        "write_time": {
+          "nanos": 223876
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.32943410268398104
+      },
+      "decode_mb_s": 54.61796264756307,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Automatic-zstd\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"varint\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Delta + BitPack + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 274992,
+        "compressed_bytes": 274992,
+        "physical_bytes_written": 278278,
+        "compression_ratio": 2.7897174767678363,
+        "records_per_sec": 1288932.8078477632,
+        "blocks_per_sec": 78.67021532273945,
+        "logical_mb_per_sec": 61.07302554870312,
+        "physical_mb_per_sec": 21.89219017958129,
+        "encode_mb_per_sec": 94.42091980235652,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 1226.1157301539047,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8221875
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 226959
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.32421470801038227
+      },
+      "decode_mb_s": 54.3907576831656,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Delta + BitPack-none\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Delta + BitPack + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 274992,
+        "compressed_bytes": 181122,
+        "physical_bytes_written": 184408,
+        "compression_ratio": 4.2097794021951325,
+        "records_per_sec": 1290523.3101954414,
+        "blocks_per_sec": 78.76729188204598,
+        "logical_mb_per_sec": 61.14838773199429,
+        "physical_mb_per_sec": 14.525318761384334,
+        "encode_mb_per_sec": 97.41507487545438,
+        "compress_mb_per_sec": 1113.143162471007,
+        "write_mb_per_sec": 856.3772726217288,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 7969167
+        },
+        "compression_time": {
+          "nanos": 247041
+        },
+        "write_time": {
+          "nanos": 215335
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.32396002559936987
+      },
+      "decode_mb_s": 53.78251569603811,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Delta + BitPack-lz4\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "Delta + BitPack + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 13,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 274992,
+        "compressed_bytes": 146942,
+        "physical_bytes_written": 150228,
+        "compression_ratio": 5.167591926937721,
+        "records_per_sec": 1217914.885708976,
+        "blocks_per_sec": 74.33562534844825,
+        "logical_mb_per_sec": 57.7080096636313,
+        "physical_mb_per_sec": 11.167292324846683,
+        "encode_mb_per_sec": 90.90762182180131,
+        "compress_mb_per_sec": 491.86256781193487,
+        "write_mb_per_sec": 676.0692684331798,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8539625
+        },
+        "compression_time": {
+          "nanos": 559083
+        },
+        "write_time": {
+          "nanos": 222208
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.33853372979000185
+      },
+      "decode_mb_s": 52.778366986198925,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-Delta + BitPack-zstd\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "DeltaOfDelta + BitPack + none",
+      "metrics": {
+        "live": false,
+        "elapsed": 12,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 277040,
+        "compressed_bytes": 277040,
+        "physical_bytes_written": 280326,
+        "compression_ratio": 2.769336415459144,
+        "records_per_sec": 1342831.6158491832,
+        "blocks_per_sec": 81.95993749079487,
+        "logical_mb_per_sec": 63.62689279304141,
+        "physical_mb_per_sec": 22.975501437044567,
+        "encode_mb_per_sec": 100.25563788399761,
+        "compress_mb_per_sec": 0.0,
+        "write_mb_per_sec": 1212.6505398671097,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 7743375
+        },
+        "compression_time": {
+          "nanos": 0
+        },
+        "write_time": {
+          "nanos": 231168
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.3181462661962057
+      },
+      "decode_mb_s": 54.91707900734337,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-DeltaOfDelta + BitPack-none\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"none\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "DeltaOfDelta + BitPack + lz4",
+      "metrics": {
+        "live": false,
+        "elapsed": 13,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 277040,
+        "compressed_bytes": 188469,
+        "physical_bytes_written": 191755,
+        "compression_ratio": 4.048483742275299,
+        "records_per_sec": 1229307.0276835682,
+        "blocks_per_sec": 75.03094651388966,
+        "logical_mb_per_sec": 58.247799304823275,
+        "physical_mb_per_sec": 14.387559148770912,
+        "encode_mb_per_sec": 89.84326899663829,
+        "compress_mb_per_sec": 1184.7771700316039,
+        "write_mb_per_sec": 860.2080595019671,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8640792
+        },
+        "compression_time": {
+          "nanos": 233833
+        },
+        "write_time": {
+          "nanos": 222917
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.33329684328301207
+      },
+      "decode_mb_s": 54.01405461819447,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-DeltaOfDelta + BitPack-lz4\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"lz4\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    },
+    {
+      "name": "DeltaOfDelta + BitPack + zstd",
+      "metrics": {
+        "live": false,
+        "elapsed": 13,
+        "records_processed": 16384,
+        "records_read": 0,
+        "logical_input_bytes": 776317,
+        "semantic_encoded_bytes": 277040,
+        "compressed_bytes": 159142,
+        "physical_bytes_written": 162428,
+        "compression_ratio": 4.7794530499667545,
+        "records_per_sec": 1221141.09464,
+        "blocks_per_sec": 74.53253751464844,
+        "logical_mb_per_sec": 57.86087592575934,
+        "physical_mb_per_sec": 12.106171003429317,
+        "encode_mb_per_sec": 95.9922060437536,
+        "compress_mb_per_sec": 477.0728145642905,
+        "write_mb_per_sec": 724.7238136031839,
+        "blocks_completed": 1,
+        "segments_completed": 1,
+        "files_completed": 0,
+        "files_seen": 0,
+        "total_files": 0,
+        "source_input_bytes": 0,
+        "parse_time": {
+          "nanos": 0
+        },
+        "encode_time": {
+          "nanos": 8087292
+        },
+        "compression_time": {
+          "nanos": 580708
+        },
+        "write_time": {
+          "nanos": 224124
+        },
+        "current_input_file": null,
+        "errors": 0,
+        "queue_depth_parse": 0,
+        "queue_depth_encode": 0,
+        "queue_depth_write": 0,
+        "worker_count": 2,
+        "active_workers": 0,
+        "worker_utilization": 0.323337650506348
+      },
+      "decode_mb_s": 54.07283966740673,
+      "verified_records": 16384,
+      "profile_toml": "name = \"bench-market-DeltaOfDelta + BitPack-zstd\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n"
+    }
+  ],
+  "failures": [],
+  "winner": 5,
+  "profile_toml": "name = \"bench-market-Manual-zstd\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nnullable = false\nunit = \"nanoseconds\"\nhints = [\"monotonic\", \"sorted\"]\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nhints = [\"monotonic\", \"sorted\", \"delta_friendly\"]\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits64\"\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nnullable = false\nmax_bytes = 8\nhints = [\"low_cardinality\"]\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nnullable = false\nwidth = \"bits64\"\nprecision = 18\nscale = 4\nhints = [\"fixed_precision\"]\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nnullable = false\nwidth = \"bits32\"\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"buy\", \"sell\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nnullable = false\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nhints = [\"low_cardinality\"]\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n\n[durability]\nmode = \"fast\"\nsync_every_blocks = 16\n",
+  "reason": "Manual + zstd selected by max_compression using actual closed dataset bytes, wall-clock ingest and equality-checked decode on 16384 observed records"
+}

@@ -1,0 +1,21 @@
+opt-raw-20260917-1gb-balanced-w2: file 2/2, 12778811 records
+opt-raw-20260917-1gb-balanced-w2: ingest complete, verifying every decoded record
+opt-raw-20260917-1gb-balanced-w2: verifying unbounded filtered query against source hash
+       17.36 real        24.66 user         0.72 sys
+           239550464  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              105134  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  32  voluntary context switches
+               15072  involuntary context switches
+        309111119230  instructions retired
+         73109953171  cycles elapsed
+           180159040  peak memory footprint

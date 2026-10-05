@@ -1,0 +1,20 @@
+preopt-20260917-validation-max_compression-w2: ingest complete, verifying every decoded record
+preopt-20260917-validation-max_compression-w2: verifying unbounded filtered query against source hash
+        0.92 real         1.13 user         0.03 sys
+           149569536  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               10262  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   4  voluntary context switches
+                1111  involuntary context switches
+         14571894893  instructions retired
+          3395933052  cycles elapsed
+            84050376  peak memory footprint

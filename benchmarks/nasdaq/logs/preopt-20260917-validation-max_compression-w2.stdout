@@ -1,0 +1,1 @@
+PASS preopt-20260917-validation-max_compression-w2: 200000 records, 11200000 logical bytes, 3034683 physical bytes; every record verified

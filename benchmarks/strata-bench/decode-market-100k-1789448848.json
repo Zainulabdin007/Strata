@@ -1,0 +1,29 @@
+{
+  "suite": "decode",
+  "meta": {
+    "git_commit": null,
+    "rustc_version": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo_profile": "release",
+    "debug_assertions": false,
+    "compiler_settings": "opt-level>=1 (release/no debug_assertions)",
+    "os": "macos",
+    "arch": "aarch64",
+    "dataset_seed": 42,
+    "workload": "market",
+    "worker_count": 18,
+    "block_size": 65536,
+    "segment_size_bytes": 268435456,
+    "record_count": 100000,
+    "size_label": "100k",
+    "compression_codec": "lz4",
+    "started_unix_secs": 1789448848
+  },
+  "metrics": {
+    "elapsed_ms": 74,
+    "logical_bytes": 5240195,
+    "logical_gb_per_sec": 0.06544370873697139,
+    "records": 100000,
+    "records_per_sec": 1340973.898653779,
+    "segment_read_mode": "auto"
+  }
+}

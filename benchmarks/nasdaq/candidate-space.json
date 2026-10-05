@@ -1,0 +1,37 @@
+{
+  "basis": "Original 32768-record time-quartile real Nasdaq optimizer; no synthetic profiles",
+  "candidates": [
+    {
+      "name": "real_auto_z1_b64k",
+      "parent": "max_compression",
+      "zstd_level": 1,
+      "block_rows": 65536
+    },
+    {
+      "name": "real_auto_z3_b64k",
+      "parent": "max_compression",
+      "zstd_level": 3,
+      "block_rows": 65536
+    },
+    {
+      "name": "real_auto_z9_b131k",
+      "parent": "max_compression",
+      "zstd_level": 9,
+      "block_rows": 131072
+    },
+    {
+      "name": "real_plain_z1_b64k",
+      "parent": "manual",
+      "zstd_level": 1,
+      "block_rows": 65536
+    },
+    {
+      "name": "real_delta_z3_b64k",
+      "parent": "balanced",
+      "zstd_level": 3,
+      "block_rows": 65536
+    }
+  ],
+  "selection": "Repeat finalists at 1 GB; equal-weight geometric size/ingest/columnar-decode score with ratios relative to best observed per dimension; validate winner at 10 GB before full corpus",
+  "scope": "Bounded empirical candidate set, not a global optimum claim"
+}

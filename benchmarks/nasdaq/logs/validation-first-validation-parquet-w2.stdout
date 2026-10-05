@@ -1,0 +1,1 @@
+PASS validation-first-validation-parquet-w2: 200000 records, 11200000 logical bytes, 4243922 physical bytes; every record verified

@@ -1,0 +1,28 @@
+[package]
+name = "strata-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+description = "Command-line interface for the Strata storage engine"
+
+[[bin]]
+name = "strata"
+path = "src/main.rs"
+
+[dependencies]
+strata-core = { workspace = true }
+strata-format = { workspace = true }
+strata-codec = { workspace = true }
+strata-storage = { workspace = true }
+strata-metrics = { workspace = true }
+strata-input = { workspace = true }
+strata-analyze = { workspace = true }
+strata-optimize = { workspace = true }
+strata-query = { workspace = true }
+anyhow = { workspace = true }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+strata-engine = { workspace = true }

@@ -1,0 +1,29 @@
+preopt-20260917-1gb-parquet-w2: file 1/2, 1687552 records
+preopt-20260917-1gb-parquet-w2: file 1/2, 3375104 records
+preopt-20260917-1gb-parquet-w2: file 1/2, 5079040 records
+preopt-20260917-1gb-parquet-w2: file 1/2, 6766592 records
+preopt-20260917-1gb-parquet-w2: file 1/2, 8437760 records
+preopt-20260917-1gb-parquet-w2: file 2/2, 10140987 records
+preopt-20260917-1gb-parquet-w2: file 2/2, 11844923 records
+preopt-20260917-1gb-parquet-w2: file 2/2, 13548859 records
+preopt-20260917-1gb-parquet-w2: file 2/2, 15252795 records
+preopt-20260917-1gb-parquet-w2: file 2/2, 16973115 records
+preopt-20260917-1gb-parquet-w2: ingest complete, verifying every decoded record
+       85.83 real        85.05 user         0.61 sys
+           142835712  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                9892  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  13  voluntary context switches
+               16568  involuntary context switches
+       1149016016604  instructions retired
+        246018657869  cycles elapsed
+            91472376  peak memory footprint

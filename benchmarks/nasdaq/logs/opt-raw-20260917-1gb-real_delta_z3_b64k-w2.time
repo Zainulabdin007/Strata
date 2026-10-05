@@ -1,0 +1,21 @@
+opt-raw-20260917-1gb-real_delta_z3_b64k-w2: file 2/2, 12926267 records
+opt-raw-20260917-1gb-real_delta_z3_b64k-w2: ingest complete, verifying every decoded record
+opt-raw-20260917-1gb-real_delta_z3_b64k-w2: verifying unbounded filtered query against source hash
+       17.19 real        25.12 user         0.60 sys
+           327385088  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              108752  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  23  voluntary context switches
+               18839  involuntary context switches
+        306052124579  instructions retired
+         74144772971  cycles elapsed
+           210453152  peak memory footprint

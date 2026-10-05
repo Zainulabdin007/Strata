@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-09-16T01:19:57.369023+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)",
+  "binary_sha256": "0cc3ce686e5cd609520c4a4eb8d3478d3dfaf6bba060c0443c9092d5402ce291",
+  "rust_sources_sha256": "969261605f496a887ad5dd70a7e2043dfa8067671da82b3b4ad1e91d19ef43bf",
+  "cargo_lock_sha256": "aad52a0c9d3878032211b2f25db3a5dde7cd922eb7836e0c904b1c154a4f6d69",
+  "argv": [
+    "scripts/run_baseline.py",
+    "--prepare"
+  ],
+  "corpus": "synthetic market-v2; NOT Nasdaq data",
+  "git_commit": null,
+  "limitations": [
+    "single run per case unless tagged repeat",
+    "warm filesystem cache; no direct-I/O",
+    "fast durability (no fsync guarantee)",
+    "peak RSS and CPU cover full process, including verification/query"
+  ],
+  "cpu": "Apple M5 Pro",
+  "ram_bytes": 68719476736,
+  "logical_cpus": 18
+}

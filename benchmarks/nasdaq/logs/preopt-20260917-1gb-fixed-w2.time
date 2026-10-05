@@ -1,0 +1,27 @@
+preopt-20260917-1gb-fixed-w2: file 1/2, 2179072 records
+preopt-20260917-1gb-fixed-w2: file 1/2, 4407296 records
+preopt-20260917-1gb-fixed-w2: file 1/2, 6586368 records
+preopt-20260917-1gb-fixed-w2: file 1/2, 8749056 records
+preopt-20260917-1gb-fixed-w2: file 2/2, 10992955 records
+preopt-20260917-1gb-fixed-w2: file 2/2, 13237563 records
+preopt-20260917-1gb-fixed-w2: file 2/2, 15498555 records
+preopt-20260917-1gb-fixed-w2: file 2/2, 17759547 records
+preopt-20260917-1gb-fixed-w2: ingest complete, verifying every decoded record
+       72.43 real        71.21 user         0.82 sys
+            62406656  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                4021  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  16  voluntary context switches
+               40270  involuntary context switches
+       1074403446105  instructions retired
+        208085117429  cycles elapsed
+            52445640  peak memory footprint

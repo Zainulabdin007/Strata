@@ -1,0 +1,88 @@
+{
+  "canonical_metrics": {
+    "active_workers": 0,
+    "blocks_completed": 0,
+    "blocks_per_sec": 0.0,
+    "compress_mb_per_sec": 0.0,
+    "compressed_bytes": 0,
+    "compression_ratio": 4.69750110074716,
+    "compression_time": {
+      "nanos": 0
+    },
+    "current_input_file": null,
+    "elapsed": 1135,
+    "encode_mb_per_sec": 0.0,
+    "encode_time": {
+      "nanos": 0
+    },
+    "errors": 0,
+    "files_completed": 0,
+    "files_seen": 0,
+    "live": false,
+    "logical_input_bytes": 47391219,
+    "logical_mb_per_sec": 41.728561119430346,
+    "parse_time": {
+      "nanos": 0
+    },
+    "physical_bytes_written": 10088602,
+    "physical_mb_per_sec": 8.88314025361127,
+    "queue_depth_encode": 0,
+    "queue_depth_parse": 0,
+    "queue_depth_write": 0,
+    "records_per_sec": 880512.508433901,
+    "records_processed": 1000000,
+    "records_read": 0,
+    "segments_completed": 0,
+    "semantic_encoded_bytes": 0,
+    "source_input_bytes": 0,
+    "total_files": 0,
+    "worker_count": 0,
+    "worker_utilization": 0.0,
+    "write_mb_per_sec": 0.0,
+    "write_time": {
+      "nanos": 0
+    }
+  },
+  "decode_wall_seconds": 0.053329833,
+  "decoded_records": 1000000,
+  "encode_wall_seconds": 1.135702375,
+  "format": "parquet",
+  "generator": "market-v2",
+  "metrics": {
+    "compression_ratio": 4.69750110074716,
+    "decode_mb_s": 888.6436790454603,
+    "disk_mb_s": 8.88314025361127,
+    "encode_mb_s": 0.0,
+    "logical_gb_s": 0.041728561119430345,
+    "query_ms": null,
+    "records_per_sec": 880512.508433901,
+    "workers": 2
+  },
+  "profile": "parquet",
+  "profile_toml": null,
+  "query": null,
+  "records": 1000000,
+  "release_build": true,
+  "seed": 42,
+  "sizes": {
+    "blocks": 0,
+    "compression_ratio": 4.69750110074716,
+    "logical_bytes": 47391219,
+    "physical_bytes": 10088602,
+    "records": 1000000,
+    "segments": 0,
+    "storage_saved_bytes": 37302617
+  },
+  "tag": "baseline",
+  "verified_records": 0,
+  "process_usage": {
+    "process_wall_seconds": 1.1987468750448897,
+    "peak_rss_bytes": 140345344,
+    "time_wall_seconds": 1.19,
+    "user_seconds": 1.15,
+    "system_seconds": 0.03,
+    "cpu_percent_of_one_core": 99.15966386554622
+  },
+  "environment": "baseline-environment.json",
+  "timing_valid": true
+}

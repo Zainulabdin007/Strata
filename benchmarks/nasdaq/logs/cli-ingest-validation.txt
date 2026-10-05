@@ -1,0 +1,31 @@
+operation=ingest
+Records:              4096
+Raw logical:          0.22 MiB (229376 bytes)
+Semantic encoded:     0.48 MiB (499875 bytes)
+Final compressed:     0.07 MiB (70896 bytes)
+Physical on disk:     0.07 MiB (75959 bytes)
+Compression ratio:    3.0197x
+Elapsed:              53 ms
+Records/sec:          75886.93
+Blocks/sec:           18.53
+Logical throughput:   4.25 MB/s
+Encode throughput:    120.76 MB/s
+Compress throughput:  796.24 MB/s
+Write throughput:     254.68 MB/s
+Disk throughput:      1.41 MB/s
+
+Pipeline:
+Workers:            2
+Worker utilization: 2.4%
+Queue depths:  parse=0 encode=0 write=0
+
+Phase times:
+Parse:              8.155 ms
+Encode:             1.899 ms
+Compression:        628 µs
+Write:              299 µs
+
+Files completed:      1
+Blocks completed:     1
+Segments completed:   1
+Errors:               0

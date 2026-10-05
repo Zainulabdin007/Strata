@@ -1,0 +1,21 @@
+opt-raw-20260917-1gb-max_ingest-w2: file 2/2, 12893499 records
+opt-raw-20260917-1gb-max_ingest-w2: ingest complete, verifying every decoded record
+opt-raw-20260917-1gb-max_ingest-w2: verifying unbounded filtered query against source hash
+       14.46 real        17.06 user         1.17 sys
+           204226560  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              358860  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               21554  involuntary context switches
+        227681249589  instructions retired
+         52604048576  cycles elapsed
+           175997504  peak memory footprint

@@ -1,0 +1,9 @@
+RUN repeat-b-20260917-1gb-max_compression-w2
+PASS repeat-b-20260917-1gb-max_compression-w2: 17857142 verified rows; 275344253 bytes; RSS=232013824
+RUN repeat-b-20260917-1gb-real_auto_z1_b64k-w2
+PASS repeat-b-20260917-1gb-real_auto_z1_b64k-w2: 17857142 verified rows; 280080207 bytes; RSS=293928960
+RUN repeat-b-20260917-1gb-real_auto_z3_b64k-w2
+PASS repeat-b-20260917-1gb-real_auto_z3_b64k-w2: 17857142 verified rows; 262391212 bytes; RSS=336084992
+RUN repeat-b-20260917-1gb-real_auto_z9_b131k-w2
+PASS repeat-b-20260917-1gb-real_auto_z9_b131k-w2: 17857142 verified rows; 248802273 bytes; RSS=433881088
+ALL REQUESTED REAL-DATA RUNS COMPLETED

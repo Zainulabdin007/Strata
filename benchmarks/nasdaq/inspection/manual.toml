@@ -1,0 +1,117 @@
+name = "databento-mbo-manual"
+input_format = "dbn"
+[schema]
+id = "databento_mbo_v1"
+
+[[columns]]
+name = "length"
+logical_type = "unsigned_integer"
+width = "bits8"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "rtype"
+logical_type = "unsigned_integer"
+width = "bits8"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "publisher_id"
+logical_type = "unsigned_integer"
+width = "bits16"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "instrument_id"
+logical_type = "unsigned_integer"
+width = "bits32"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "ts_event"
+logical_type = "unsigned_integer"
+width = "bits64"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "order_id"
+logical_type = "unsigned_integer"
+width = "bits64"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "price"
+logical_type = "signed_integer"
+width = "bits64"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "size"
+logical_type = "unsigned_integer"
+width = "bits32"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "flags"
+logical_type = "unsigned_integer"
+width = "bits8"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "channel_id"
+logical_type = "unsigned_integer"
+width = "bits8"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "action"
+logical_type = "unsigned_integer"
+width = "bits8"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "side"
+logical_type = "unsigned_integer"
+width = "bits8"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "ts_recv"
+logical_type = "unsigned_integer"
+width = "bits64"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "ts_in_delta"
+logical_type = "signed_integer"
+width = "bits32"
+nullable = false
+encoding = ["plain"]
+
+[[columns]]
+name = "sequence"
+logical_type = "unsigned_integer"
+width = "bits32"
+nullable = false
+encoding = ["plain"]
+
+[block]
+row_count = 16384
+[segment]
+target_size_bytes = 67108864
+[compression]
+codec = "zstd"
+level = 3

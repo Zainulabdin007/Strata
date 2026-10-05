@@ -1,0 +1,105 @@
+[package]
+name = "strata-integration"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+publish = false
+description = "Workspace integration tests for Strata"
+
+[dependencies]
+dbn = { version = "=0.69.0", default-features = false }
+zstd = { workspace = true }
+strata-core = { workspace = true }
+strata-format = { workspace = true }
+strata-codec = { workspace = true }
+strata-storage = { workspace = true }
+strata-metrics = { workspace = true }
+strata-input = { workspace = true }
+strata-analyze = { workspace = true }
+strata-optimize = { workspace = true }
+strata-query = { workspace = true }
+serde_json = { workspace = true }
+clap = { workspace = true }
+proptest = "1"
+
+[[bin]]
+name = "strata-crash-writer"
+path = "bin/crash_writer.rs"
+
+[[test]]
+name = "smoke"
+path = "smoke.rs"
+
+[[test]]
+name = "profile_and_input"
+path = "profile_and_input.rs"
+
+[[test]]
+name = "storage_roundtrip"
+path = "storage_roundtrip.rs"
+
+[[test]]
+name = "metrics_system"
+path = "metrics_system.rs"
+
+[[test]]
+name = "compression_roundtrip"
+path = "compression_roundtrip.rs"
+
+[[test]]
+name = "analyze_profiler"
+path = "analyze_profiler.rs"
+
+[[test]]
+name = "parallel_ingest"
+path = "parallel_ingest.rs"
+
+[[test]]
+name = "optimize_plans"
+path = "optimize_plans.rs"
+
+[[test]]
+name = "ingest_scaling"
+path = "ingest_scaling.rs"
+
+[[test]]
+name = "crash_recovery"
+path = "crash_recovery.rs"
+
+[[test]]
+name = "index_rebuild"
+path = "index_rebuild.rs"
+
+[[test]]
+name = "query_engine"
+path = "query_engine.rs"
+
+[[test]]
+name = "query_bench"
+path = "query_bench.rs"
+
+[[test]]
+name = "mmap_reads"
+path = "mmap_reads.rs"
+
+[[test]]
+name = "mmap_bench"
+path = "mmap_bench.rs"
+
+[[test]]
+name = "compaction"
+path = "compaction.rs"
+
+[[test]]
+name = "hardening"
+path = "hardening.rs"
+
+[[test]]
+name = "fuzz_safety"
+path = "fuzz_safety.rs"
+
+[[test]]
+name = "dbn_roundtrip"
+path = "dbn_roundtrip.rs"

@@ -1,0 +1,26 @@
+preopt-20260917-1gb-max_ingest-w2: file 1/2, 3014656 records
+preopt-20260917-1gb-max_ingest-w2: file 1/2, 5685248 records
+preopt-20260917-1gb-max_ingest-w2: file 1/2, 8601600 records
+preopt-20260917-1gb-max_ingest-w2: file 2/2, 11435323 records
+preopt-20260917-1gb-max_ingest-w2: file 2/2, 14040379 records
+preopt-20260917-1gb-max_ingest-w2: file 2/2, 17235259 records
+preopt-20260917-1gb-max_ingest-w2: ingest complete, verifying every decoded record
+preopt-20260917-1gb-max_ingest-w2: verifying unbounded filtered query against source hash
+       77.19 real       101.13 user         2.43 sys
+           307216384  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              295236  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 104  voluntary context switches
+              136534  involuntary context switches
+       1204309010619  instructions retired
+        287377631527  cycles elapsed
+           174457480  peak memory footprint

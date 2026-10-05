@@ -1,0 +1,42 @@
+{
+  "started_utc": "2026-09-18T02:50:59.672933+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)",
+  "binary_sha256": "c4f771695e61fcaccd56866921228e44febfc70364dbe9dfe2982c9f556cb7d5",
+  "rust_sources_sha256": "f07ef77b612d6780b12f7d05713790989432045deebb416cc26befbe69135f92",
+  "cargo_lock_sha256": "747b7dc0e11d120226b88524d540082ba2184191cbb5c28f6f3bb85f24c92977",
+  "argv": [
+    "scripts/run_nasdaq_baseline.py",
+    "--input",
+    "benchmarks/nasdaq/representative-windows",
+    "--tiers",
+    "windows",
+    "--tag",
+    "windows-b-20260917",
+    "--profiles",
+    "max_compression",
+    "real_auto_z1_b64k",
+    "real_auto_z3_b64k",
+    "real_auto_z9_b131k",
+    "--targets"
+  ],
+  "git_commit": null,
+  "corpus": "Databento XNAS.ITCH MBO; actual source files",
+  "limitations": [
+    "single measurement per case unless repeated with a new tag",
+    "warm filesystem cache; buffered I/O; fast durability without fsync guarantee",
+    "ingest includes DBN decode, source hashing, canonical rows and target writing; outer decompression only when source_representation is streaming vendor DBN.zst",
+    "columnar_scan is separate from validation-inclusive decode; all columns materialized into bounded arrays for both Strata and Parquet",
+    "decode includes all-field canonical materialization and SHA-256 validation for every target; Strata and Parquet use bounded column arrays, fixed uses bounded rows",
+    "peak RSS and CPU cover entire process including input, verification and queries",
+    "full tier compares only explicitly selected --full-profiles",
+    "vendor full-file transport bytes are not a denominator for partial tiers"
+  ],
+  "cpu": "Apple M5 Pro",
+  "ram_bytes": 68719476736,
+  "logical_cpus": 18,
+  "implementation_archive": "windows-b-20260917-implementation.tar.gz",
+  "frozen_binary": "binaries/c4f771695e61fcaccd56866921228e44febfc70364dbe9dfe2982c9f556cb7d5"
+}

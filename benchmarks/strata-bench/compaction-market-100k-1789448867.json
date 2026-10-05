@@ -1,0 +1,33 @@
+{
+  "suite": "compaction",
+  "meta": {
+    "git_commit": null,
+    "rustc_version": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo_profile": "release",
+    "debug_assertions": false,
+    "compiler_settings": "opt-level>=1 (release/no debug_assertions)",
+    "os": "macos",
+    "arch": "aarch64",
+    "dataset_seed": 42,
+    "workload": "market",
+    "worker_count": 18,
+    "block_size": 65536,
+    "segment_size_bytes": 268435456,
+    "record_count": 100000,
+    "size_label": "100k",
+    "compression_codec": "lz4",
+    "started_unix_secs": 1789448867
+  },
+  "metrics": {
+    "compaction_generation": 1,
+    "elapsed_ms": 15612,
+    "indexes_rebuilt": true,
+    "logical_records_after": 49048,
+    "logical_records_before": 49048,
+    "logical_state_preserved": true,
+    "physical_records_after": 49048,
+    "physical_records_before": 104286,
+    "segments_after": 1,
+    "workload_keys": "order_id"
+  }
+}

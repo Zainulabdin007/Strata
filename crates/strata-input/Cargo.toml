@@ -1,0 +1,21 @@
+[package]
+name = "strata-input"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+description = "Input discovery and record parsers for Strata ingest"
+
+[dependencies]
+dbn = { version = "=0.69.0", default-features = false, features = ["serde"] }
+zstd = { workspace = true }
+serde = { workspace = true }
+sha2 = "0.10"
+strata-core = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+csv = { workspace = true }
+
+[dev-dependencies]
+toml = { workspace = true }

@@ -1,0 +1,99 @@
+{
+  "winner": "real_auto_z3_b64k",
+  "profiles": {
+    "max_compression": {
+      "1gb": {
+        "bytes": 275344253.0,
+        "ingest_rps": 2611457.262965132,
+        "scan_rps": 7679413.980152728,
+        "reports": [
+          "repeat-a-20260917-1gb-max_compression-w2.json",
+          "repeat-b-20260917-1gb-max_compression-w2.json"
+        ],
+        "cost": 1.035198668173791
+      },
+      "windows": {
+        "bytes": 16051194.0,
+        "ingest_rps": 2313927.8770385636,
+        "scan_rps": 7696252.727230206,
+        "reports": [
+          "windows-a-20260917-windows-max_compression-w2.json",
+          "windows-b-20260917-windows-max_compression-w2.json"
+        ],
+        "cost": 1.0292573460174481
+      },
+      "cost": 1.0322237324366035
+    },
+    "real_auto_z1_b64k": {
+      "1gb": {
+        "bytes": 280080207.0,
+        "ingest_rps": 2604173.788279277,
+        "scan_rps": 7607032.98871034,
+        "reports": [
+          "repeat-a-20260917-1gb-real_auto_z1_b64k-w2.json",
+          "repeat-b-20260917-1gb-real_auto_z1_b64k-w2.json"
+        ],
+        "cost": 1.0453645107746188
+      },
+      "windows": {
+        "bytes": 16374290.0,
+        "ingest_rps": 2218455.8939713696,
+        "scan_rps": 7756665.113468128,
+        "reports": [
+          "windows-a-20260917-windows-real_auto_z1_b64k-w2.json",
+          "windows-b-20260917-windows-real_auto_z1_b64k-w2.json"
+        ],
+        "cost": 1.048037412250336
+      },
+      "cost": 1.046700108307327
+    },
+    "real_auto_z3_b64k": {
+      "1gb": {
+        "bytes": 262391212.0,
+        "ingest_rps": 2587193.4120614375,
+        "scan_rps": 7619377.5318188295,
+        "reports": [
+          "repeat-a-20260917-1gb-real_auto_z3_b64k-w2.json",
+          "repeat-b-20260917-1gb-real_auto_z3_b64k-w2.json"
+        ],
+        "cost": 1.024555916230385
+      },
+      "windows": {
+        "bytes": 15482865.0,
+        "ingest_rps": 2211958.191574906,
+        "scan_rps": 7612050.208177598,
+        "reports": [
+          "windows-a-20260917-windows-real_auto_z3_b64k-w2.json",
+          "windows-b-20260917-windows-real_auto_z3_b64k-w2.json"
+        ],
+        "cost": 1.0361488832445815
+      },
+      "cost": 1.0303360948854225
+    },
+    "real_auto_z9_b131k": {
+      "1gb": {
+        "bytes": 248802273.0,
+        "ingest_rps": 2524676.0092848972,
+        "scan_rps": 7697993.165662618,
+        "reports": [
+          "repeat-a-20260917-1gb-real_auto_z9_b131k-w2.json",
+          "repeat-b-20260917-1gb-real_auto_z9_b131k-w2.json"
+        ],
+        "cost": 1.0113289123694158
+      },
+      "windows": {
+        "bytes": 14836489.0,
+        "ingest_rps": 1951057.152413278,
+        "scan_rps": 7735566.079643023,
+        "reports": [
+          "windows-a-20260917-windows-real_auto_z9_b131k-w2.json",
+          "windows-b-20260917-windows-real_auto_z9_b131k-w2.json"
+        ],
+        "cost": 1.0594673791238245
+      },
+      "cost": 1.0351183469633667
+    }
+  },
+  "method": "Equal-weight geometric cost for physical bytes, ingest time and all-column scan time; median of repeats; equal weight to prefix and time-quartile windows",
+  "scope": "Best among measured candidates, not a global optimum; 10 GB validation and full-corpus measurements follow separately"
+}

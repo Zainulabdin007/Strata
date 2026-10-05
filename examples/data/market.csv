@@ -1,0 +1,4 @@
+seq,ts,symbol,side,price,size,is_implied,payload
+1,1700000000000000,AAPL,buy,190.25000000,100,false,
+2,1700000000001000,AAPL,sell,190.26000000,50,false,0x0102
+3,1700000000002000,MSFT,buy,380.10000000,25,true,

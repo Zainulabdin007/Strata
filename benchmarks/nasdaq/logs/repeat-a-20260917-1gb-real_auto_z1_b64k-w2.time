@@ -1,0 +1,21 @@
+repeat-a-20260917-1gb-real_auto_z1_b64k-w2: file 2/2, 12926267 records
+repeat-a-20260917-1gb-real_auto_z1_b64k-w2: ingest complete, verifying every decoded record
+repeat-a-20260917-1gb-real_auto_z1_b64k-w2: verifying unbounded filtered query against source hash
+       16.16 real        21.53 user         0.65 sys
+           334577664  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              103017  page reclaims
+                   5  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  13  voluntary context switches
+               43004  involuntary context switches
+        254716174283  instructions retired
+         64812470163  cycles elapsed
+           224903864  peak memory footprint

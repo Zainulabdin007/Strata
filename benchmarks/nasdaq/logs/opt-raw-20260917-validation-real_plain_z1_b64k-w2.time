@@ -1,0 +1,20 @@
+opt-raw-20260917-validation-real_plain_z1_b64k-w2: ingest complete, verifying every decoded record
+opt-raw-20260917-validation-real_plain_z1_b64k-w2: verifying unbounded filtered query against source hash
+        0.25 real         0.30 user         0.02 sys
+           130154496  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               10231  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  90  involuntary context switches
+          3877329883  instructions retired
+           937851634  cycles elapsed
+           101728736  peak memory footprint

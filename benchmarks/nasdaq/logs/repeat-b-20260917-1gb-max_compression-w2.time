@@ -1,0 +1,21 @@
+repeat-b-20260917-1gb-max_compression-w2: file 2/2, 12844347 records
+repeat-b-20260917-1gb-max_compression-w2: ingest complete, verifying every decoded record
+repeat-b-20260917-1gb-max_compression-w2: verifying unbounded filtered query against source hash
+       16.07 real        21.52 user         0.79 sys
+           232013824  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               94316  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  16  voluntary context switches
+               15581  involuntary context switches
+        262888315711  instructions retired
+         64292578331  cycles elapsed
+           172786216  peak memory footprint

@@ -1,0 +1,138 @@
+name = "databento-mbo-manual-Automatic-none"
+input_format = "dbn"
+
+[input]
+recursive = true
+
+[schema]
+id = "databento_mbo_v1"
+
+[[columns]]
+name = "length"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits8"
+hints = ["sorted", "low_cardinality"]
+encoding = ["varint"]
+
+[[columns]]
+name = "rtype"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits8"
+hints = ["sorted", "low_cardinality"]
+encoding = ["run_length"]
+
+[[columns]]
+name = "publisher_id"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits16"
+hints = ["sorted", "low_cardinality"]
+encoding = ["run_length"]
+
+[[columns]]
+name = "instrument_id"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits32"
+encoding = ["plain"]
+
+[[columns]]
+name = "ts_event"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits64"
+hints = ["sorted"]
+encoding = ["plain"]
+
+[[columns]]
+name = "order_id"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits64"
+encoding = ["plain"]
+
+[[columns]]
+name = "price"
+logical_type = "signed_integer"
+nullable = false
+width = "bits64"
+encoding = ["plain"]
+
+[[columns]]
+name = "size"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits32"
+hints = ["low_cardinality"]
+encoding = ["varint"]
+
+[[columns]]
+name = "flags"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits8"
+hints = ["low_cardinality"]
+encoding = ["plain"]
+
+[[columns]]
+name = "channel_id"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits8"
+hints = ["sorted", "low_cardinality"]
+encoding = ["varint"]
+
+[[columns]]
+name = "action"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits8"
+hints = ["low_cardinality"]
+encoding = ["varint"]
+
+[[columns]]
+name = "side"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits8"
+hints = ["low_cardinality"]
+encoding = ["varint"]
+
+[[columns]]
+name = "ts_recv"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits64"
+hints = ["sorted"]
+encoding = ["plain"]
+
+[[columns]]
+name = "ts_in_delta"
+logical_type = "signed_integer"
+nullable = false
+width = "bits32"
+encoding = ["plain"]
+
+[[columns]]
+name = "sequence"
+logical_type = "unsigned_integer"
+nullable = false
+width = "bits32"
+hints = ["sorted"]
+encoding = ["delta", "zigzag", "varint"]
+
+[block]
+row_count = 16384
+
+[segment]
+target_size_bytes = 67108864
+
+[compression]
+codec = "none"
+level = 3
+
+[durability]
+mode = "fast"
+sync_every_blocks = 16

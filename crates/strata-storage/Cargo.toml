@@ -1,0 +1,23 @@
+[package]
+name = "strata-storage"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+description = "Dataset, segment, and block readers/writers for Strata"
+
+[dependencies]
+strata-core = { workspace = true }
+strata-format = { workspace = true }
+strata-codec = { workspace = true }
+strata-metrics = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+crc32fast = { workspace = true }
+crossbeam-channel = { workspace = true }
+libc = "0.2"
+
+[dev-dependencies]
+tempfile = "3"

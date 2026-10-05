@@ -1,0 +1,19 @@
+preopt-20260917-validation-parquet-w2: ingest complete, verifying every decoded record
+        1.00 real         0.96 user         0.02 sys
+            92028928  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                5891  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   5  voluntary context switches
+                 233  involuntary context switches
+         13219742592  instructions retired
+          2838187724  cycles elapsed
+            57213360  peak memory footprint

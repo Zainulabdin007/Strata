@@ -1,0 +1,14 @@
+[package]
+name = "strata-api"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+strata-engine = { workspace = true }
+strata-metrics = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+clap = { workspace = true }
+tiny_http = "0.12"
+crossbeam-channel = { workspace = true }

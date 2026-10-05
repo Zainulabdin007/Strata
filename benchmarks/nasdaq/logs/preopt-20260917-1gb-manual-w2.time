@@ -1,0 +1,25 @@
+preopt-20260917-1gb-manual-w2: file 1/2, 3129344 records
+preopt-20260917-1gb-manual-w2: file 1/2, 6258688 records
+preopt-20260917-1gb-manual-w2: file 2/2, 9387323 records
+preopt-20260917-1gb-manual-w2: file 2/2, 12565819 records
+preopt-20260917-1gb-manual-w2: file 2/2, 15760699 records
+preopt-20260917-1gb-manual-w2: ingest complete, verifying every decoded record
+preopt-20260917-1gb-manual-w2: verifying unbounded filtered query against source hash
+       76.49 real       101.69 user         1.18 sys
+           315883520  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               86096  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  56  voluntary context switches
+               43524  involuntary context switches
+       1270212043553  instructions retired
+        296074710173  cycles elapsed
+           174867056  peak memory footprint

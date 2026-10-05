@@ -1,0 +1,22 @@
+opt-raw-20260917-1gb-parquet-w2: file 1/2, 5406720 records
+opt-raw-20260917-1gb-parquet-w2: file 2/2, 10747195 records
+opt-raw-20260917-1gb-parquet-w2: file 2/2, 16055611 records
+opt-raw-20260917-1gb-parquet-w2: ingest complete, verifying every decoded record
+       21.39 real        20.98 user         0.36 sys
+           115294208  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                7248  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  12  voluntary context switches
+                3992  involuntary context switches
+        265979788761  instructions retired
+         61277337568  cycles elapsed
+           107626976  peak memory footprint

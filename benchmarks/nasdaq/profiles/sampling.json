@@ -1,0 +1,74 @@
+[
+  {
+    "boundary_ts_event": "1789138800000000000",
+    "max_ts_event": "1789138800009746649",
+    "min_ts_event": "1789138800000001402",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-0-window-0.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260911.mbo.dbn.zst",
+    "start_record": 45
+  },
+  {
+    "boundary_ts_event": "1789146900000000000",
+    "max_ts_event": "1789146900028565110",
+    "min_ts_event": "1789146900000016560",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-0-window-1.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260911.mbo.dbn.zst",
+    "start_record": 295849266
+  },
+  {
+    "boundary_ts_event": "1789155000000000000",
+    "max_ts_event": "1789155000018181163",
+    "min_ts_event": "1789155000000068187",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-0-window-2.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260911.mbo.dbn.zst",
+    "start_record": 497993514
+  },
+  {
+    "boundary_ts_event": "1789163100000000000",
+    "max_ts_event": "1789163130211070638",
+    "min_ts_event": "1789163100005736886",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-0-window-3.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260911.mbo.dbn.zst",
+    "start_record": 597857280
+  },
+  {
+    "boundary_ts_event": "1789344000000000000",
+    "max_ts_event": "1789369485982910158",
+    "min_ts_event": "1789369485853786387",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-1-window-0.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260914.mbo.dbn.zst",
+    "start_record": 0
+  },
+  {
+    "boundary_ts_event": "1789365600000000000",
+    "max_ts_event": "1789369486089019861",
+    "min_ts_event": "1789369485982929874",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-1-window-1.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260914.mbo.dbn.zst",
+    "start_record": 4096
+  },
+  {
+    "boundary_ts_event": "1789387200000000000",
+    "max_ts_event": "1789387200390655576",
+    "min_ts_event": "1789387200000487826",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-1-window-2.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260914.mbo.dbn.zst",
+    "start_record": 35338314
+  },
+  {
+    "boundary_ts_event": "1789408800000000000",
+    "max_ts_event": "1789408800019788636",
+    "min_ts_event": "1789408800000001334",
+    "records": 4096,
+    "sample": "benchmarks/nasdaq/samples/source-1-window-3.dbn",
+    "source": "benchmarks/nasdaq/sources/xnas-itch-20260914.mbo.dbn.zst",
+    "start_record": 912945218
+  }
+]

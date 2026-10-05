@@ -1,0 +1,836 @@
+{
+  "source": "benchmarks/nasdaq/representative-windows",
+  "schema_id": "databento_mbo_v1",
+  "record_count": 65536,
+  "file_count": 8,
+  "block_rows": 16384,
+  "columns": [
+    {
+      "name": "length",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 14,
+      "max": 14,
+      "cardinality": 1,
+      "cardinality_ratio": 0.0000152587890625,
+      "sortedness": 1.0,
+      "monotonicity": 0.0,
+      "avg_delta": 0.0,
+      "median_delta": 0.0,
+      "delta_variance": 0.0,
+      "delta_variance_label": "low",
+      "run_length": {
+        "run_count": 1,
+        "avg_run_length": 65536.0,
+        "max_run_length": 65536,
+        "max_run_fraction": 1.0
+      },
+      "min_bit_width": 1,
+      "absolute_bit_width": 4,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 0.0,
+        "max_range": 0.0,
+        "global_range": 0.0,
+        "label": "degenerate"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 14,
+        "mode_count": 65536,
+        "mode_frequency": 1.0,
+        "top": [
+          [
+            14,
+            65536
+          ]
+        ]
+      }
+    },
+    {
+      "name": "rtype",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 160,
+      "max": 160,
+      "cardinality": 1,
+      "cardinality_ratio": 0.0000152587890625,
+      "sortedness": 1.0,
+      "monotonicity": 0.0,
+      "avg_delta": 0.0,
+      "median_delta": 0.0,
+      "delta_variance": 0.0,
+      "delta_variance_label": "low",
+      "run_length": {
+        "run_count": 1,
+        "avg_run_length": 65536.0,
+        "max_run_length": 65536,
+        "max_run_fraction": 1.0
+      },
+      "min_bit_width": 1,
+      "absolute_bit_width": 8,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 0.0,
+        "max_range": 0.0,
+        "global_range": 0.0,
+        "label": "degenerate"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 160,
+        "mode_count": 65536,
+        "mode_frequency": 1.0,
+        "top": [
+          [
+            160,
+            65536
+          ]
+        ]
+      }
+    },
+    {
+      "name": "publisher_id",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 2,
+      "max": 2,
+      "cardinality": 1,
+      "cardinality_ratio": 0.0000152587890625,
+      "sortedness": 1.0,
+      "monotonicity": 0.0,
+      "avg_delta": 0.0,
+      "median_delta": 0.0,
+      "delta_variance": 0.0,
+      "delta_variance_label": "low",
+      "run_length": {
+        "run_count": 1,
+        "avg_run_length": 65536.0,
+        "max_run_length": 65536,
+        "max_run_fraction": 1.0
+      },
+      "min_bit_width": 1,
+      "absolute_bit_width": 2,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 0.0,
+        "max_range": 0.0,
+        "global_range": 0.0,
+        "label": "degenerate"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 2,
+        "mode_count": 65536,
+        "mode_frequency": 1.0,
+        "top": [
+          [
+            2,
+            65536
+          ]
+        ]
+      }
+    },
+    {
+      "name": "instrument_id",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 4,
+      "max": 24220,
+      "cardinality": 2744,
+      "cardinality_ratio": 0.0418701171875,
+      "sortedness": 0.7115434500648509,
+      "monotonicity": 0.2884870679789425,
+      "avg_delta": -0.055237659266041045,
+      "median_delta": 0.0,
+      "delta_variance": 40446379.8343745,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 37811,
+        "avg_run_length": 1.7332522281875644,
+        "max_run_length": 42,
+        "max_run_fraction": 0.000640869140625
+      },
+      "min_bit_width": 15,
+      "absolute_bit_width": 15,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 24184.5,
+        "max_range": 24216.0,
+        "global_range": 24216.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 15144,
+        "mode_count": 1734,
+        "mode_frequency": 0.026458740234375,
+        "top": [
+          [
+            15144,
+            1734
+          ],
+          [
+            13340,
+            1328
+          ],
+          [
+            17039,
+            1145
+          ],
+          [
+            13308,
+            1093
+          ],
+          [
+            13345,
+            927
+          ]
+        ]
+      }
+    },
+    {
+      "name": "ts_event",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 1789138800000001402,
+      "max": 1789138800406561347,
+      "cardinality": 50862,
+      "cardinality_ratio": 0.776092529296875,
+      "sortedness": 0.9643854428931106,
+      "monotonicity": 0.7404745555809873,
+      "avg_delta": 6203.707103074693,
+      "median_delta": 1377.0,
+      "delta_variance": 209972190.3404991,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 50862,
+        "avg_run_length": 1.2885061539066494,
+        "max_run_length": 36,
+        "max_run_fraction": 0.00054931640625
+      },
+      "min_bit_width": 29,
+      "absolute_bit_width": 61,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 101631570.75,
+        "max_range": 133201587.0,
+        "global_range": 406559945.0,
+        "label": "moderate"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 1789138800155425680,
+        "mode_count": 36,
+        "mode_frequency": 0.00054931640625,
+        "top": [
+          [
+            1789138800155425680,
+            36
+          ],
+          [
+            1789138800084335266,
+            21
+          ],
+          [
+            1789138800135438808,
+            18
+          ],
+          [
+            1789138800154358983,
+            18
+          ],
+          [
+            1789138800155188250,
+            18
+          ]
+        ]
+      }
+    },
+    {
+      "name": "order_id",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 0,
+      "max": 667247764,
+      "cardinality": 43305,
+      "cardinality_ratio": 0.6607818603515625,
+      "sortedness": 0.5739986266880293,
+      "monotonicity": 0.5620202944991226,
+      "avg_delta": -3115.5268635080492,
+      "median_delta": 8.0,
+      "delta_variance": 1.9314812861646748e+16,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 64751,
+        "avg_run_length": 1.0121233648901176,
+        "max_run_length": 4,
+        "max_run_fraction": 0.00006103515625
+      },
+      "min_bit_width": 30,
+      "absolute_bit_width": 30,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 667210566.0,
+        "max_range": 667247764.0,
+        "global_range": 667247764.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 0,
+        "mode_count": 910,
+        "mode_frequency": 0.013885498046875,
+        "top": [
+          [
+            0,
+            910
+          ],
+          [
+            484998995,
+            8
+          ],
+          [
+            667210088,
+            8
+          ],
+          [
+            386801017,
+            7
+          ],
+          [
+            484219919,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "name": "price",
+      "logical_type": "signed_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 179800000,
+      "max": 1907640000000,
+      "cardinality": 12893,
+      "cardinality_ratio": 0.1967315673828125,
+      "sortedness": 0.5228046082246128,
+      "monotonicity": 0.46665140764477,
+      "avg_delta": 1737392.2331578545,
+      "median_delta": 0.0,
+      "delta_variance": 5.655688635963703e+22,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 61856,
+        "avg_run_length": 1.0594930160372478,
+        "max_run_length": 36,
+        "max_run_fraction": 0.00054931640625
+      },
+      "min_bit_width": 41,
+      "absolute_bit_width": 41,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 1758509850000.0,
+        "max_range": 1907109400000.0,
+        "global_range": 1907460200000.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 50920000000,
+        "mode_count": 220,
+        "mode_frequency": 0.00335693359375,
+        "top": [
+          [
+            50920000000,
+            220
+          ],
+          [
+            25940000000,
+            199
+          ],
+          [
+            116930000000,
+            180
+          ],
+          [
+            70860000000,
+            139
+          ],
+          [
+            112700000000,
+            134
+          ]
+        ]
+      }
+    },
+    {
+      "name": "size",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 1,
+      "max": 37100,
+      "cardinality": 497,
+      "cardinality_ratio": 0.0075836181640625,
+      "sortedness": 0.7277027542534523,
+      "monotonicity": 0.27698176546883346,
+      "avg_delta": 0.0,
+      "median_delta": 0.0,
+      "delta_variance": 1332357.525406659,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 35998,
+        "avg_run_length": 1.8205455858658814,
+        "max_run_length": 53,
+        "max_run_fraction": 0.0008087158203125
+      },
+      "min_bit_width": 16,
+      "absolute_bit_width": 16,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 30054.0,
+        "max_range": 37099.0,
+        "global_range": 37099.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 100,
+        "mode_count": 33676,
+        "mode_frequency": 0.51385498046875,
+        "top": [
+          [
+            100,
+            33676
+          ],
+          [
+            40,
+            5012
+          ],
+          [
+            200,
+            2665
+          ],
+          [
+            25,
+            1996
+          ],
+          [
+            300,
+            1190
+          ]
+        ]
+      }
+    },
+    {
+      "name": "flags",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 0,
+      "max": 128,
+      "cardinality": 2,
+      "cardinality_ratio": 0.000030517578125,
+      "sortedness": 0.8362096589608606,
+      "monotonicity": 0.1637903410391394,
+      "avg_delta": 0.0,
+      "median_delta": 0.0,
+      "delta_variance": 5367.163792840358,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 21469,
+        "avg_run_length": 3.0525874516745075,
+        "max_run_length": 72,
+        "max_run_fraction": 0.0010986328125
+      },
+      "min_bit_width": 8,
+      "absolute_bit_width": 8,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 128.0,
+        "max_range": 128.0,
+        "global_range": 128.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 128,
+        "mode_count": 46355,
+        "mode_frequency": 0.7073211669921875,
+        "top": [
+          [
+            128,
+            46355
+          ],
+          [
+            0,
+            19181
+          ]
+        ]
+      }
+    },
+    {
+      "name": "channel_id",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 0,
+      "max": 0,
+      "cardinality": 1,
+      "cardinality_ratio": 0.0000152587890625,
+      "sortedness": 1.0,
+      "monotonicity": 0.0,
+      "avg_delta": 0.0,
+      "median_delta": 0.0,
+      "delta_variance": 0.0,
+      "delta_variance_label": "low",
+      "run_length": {
+        "run_count": 1,
+        "avg_run_length": 65536.0,
+        "max_run_length": 65536,
+        "max_run_fraction": 1.0
+      },
+      "min_bit_width": 1,
+      "absolute_bit_width": 1,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 0.0,
+        "max_range": 0.0,
+        "global_range": 0.0,
+        "label": "degenerate"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 0,
+        "mode_count": 65536,
+        "mode_frequency": 1.0,
+        "top": [
+          [
+            0,
+            65536
+          ]
+        ]
+      }
+    },
+    {
+      "name": "action",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 65,
+      "max": 84,
+      "cardinality": 4,
+      "cardinality_ratio": 0.00006103515625,
+      "sortedness": 0.6603341725795376,
+      "monotonicity": 0.32692454413672084,
+      "avg_delta": -0.000030518043793392844,
+      "median_delta": 0.0,
+      "delta_variance": 9.580645160358928,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 43686,
+        "avg_run_length": 1.5001602344000367,
+        "max_run_length": 35,
+        "max_run_fraction": 0.0005340576171875
+      },
+      "min_bit_width": 5,
+      "absolute_bit_width": 7,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 19.0,
+        "max_range": 19.0,
+        "global_range": 19.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 67,
+        "mode_count": 32352,
+        "mode_frequency": 0.49365234375,
+        "top": [
+          [
+            67,
+            32352
+          ],
+          [
+            65,
+            31657
+          ],
+          [
+            84,
+            910
+          ],
+          [
+            70,
+            617
+          ]
+        ]
+      }
+    },
+    {
+      "name": "side",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 65,
+      "max": 78,
+      "cardinality": 3,
+      "cardinality_ratio": 0.0000457763671875,
+      "sortedness": 0.8345922026398108,
+      "monotonicity": 0.16556038757915617,
+      "avg_delta": -0.000015259021896696422,
+      "median_delta": 0.0,
+      "delta_variance": 1.5172124391116142,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 21691,
+        "avg_run_length": 3.021345258402102,
+        "max_run_length": 58,
+        "max_run_fraction": 0.000885009765625
+      },
+      "min_bit_width": 4,
+      "absolute_bit_width": 7,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 13.0,
+        "max_range": 13.0,
+        "global_range": 13.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 65,
+        "mode_count": 32787,
+        "mode_frequency": 0.5002899169921875,
+        "top": [
+          [
+            65,
+            32787
+          ],
+          [
+            66,
+            32456
+          ],
+          [
+            78,
+            293
+          ]
+        ]
+      }
+    },
+    {
+      "name": "ts_recv",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 1789138800000169365,
+      "max": 1789138800406729076,
+      "cardinality": 41252,
+      "cardinality_ratio": 0.62945556640625,
+      "sortedness": 1.0,
+      "monotonicity": 0.6294499122606241,
+      "avg_delta": 6203.703532463569,
+      "median_delta": 1480.0,
+      "delta_variance": 210056642.46672785,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 41252,
+        "avg_run_length": 1.588674488509648,
+        "max_run_length": 25,
+        "max_run_fraction": 0.0003814697265625
+      },
+      "min_bit_width": 29,
+      "absolute_bit_width": 61,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 101631591.5,
+        "max_range": 133199290.0,
+        "global_range": 406559711.0,
+        "label": "moderate"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 1789138800038980027,
+        "mode_count": 25,
+        "mode_frequency": 0.0003814697265625,
+        "top": [
+          [
+            1789138800038980027,
+            25
+          ],
+          [
+            1789138800085108566,
+            23
+          ],
+          [
+            1789138800084507854,
+            21
+          ],
+          [
+            1789138800278180723,
+            20
+          ],
+          [
+            1789138800135610701,
+            18
+          ]
+        ]
+      }
+    },
+    {
+      "name": "ts_in_delta",
+      "logical_type": "signed_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 166335,
+      "max": 180431,
+      "cardinality": 4715,
+      "cardinality_ratio": 0.0719451904296875,
+      "sortedness": 0.5762874799725337,
+      "monotonicity": 0.3518577859159228,
+      "avg_delta": -0.0035706111238269626,
+      "median_delta": 0.0,
+      "delta_variance": 422576.84025330417,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 50828,
+        "avg_run_length": 1.2893680648461479,
+        "max_run_length": 21,
+        "max_run_fraction": 0.0003204345703125
+      },
+      "min_bit_width": 14,
+      "absolute_bit_width": 18,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 11194.25,
+        "max_range": 14065.0,
+        "global_range": 14096.0,
+        "label": "wide"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 166840,
+        "mode_count": 99,
+        "mode_frequency": 0.0015106201171875,
+        "top": [
+          [
+            166840,
+            99
+          ],
+          [
+            166887,
+            98
+          ],
+          [
+            166908,
+            98
+          ],
+          [
+            166929,
+            98
+          ],
+          [
+            166903,
+            97
+          ]
+        ]
+      }
+    },
+    {
+      "name": "sequence",
+      "logical_type": "unsigned_integer",
+      "row_count": 65536,
+      "null_count": 0,
+      "present_count": 65536,
+      "min": 379884648,
+      "max": 379935853,
+      "cardinality": 51205,
+      "cardinality_ratio": 0.7813262939453125,
+      "sortedness": 0.9643854428931106,
+      "monotonicity": 0.7457084000915541,
+      "avg_delta": 0.7813382162203403,
+      "median_delta": 1.0,
+      "delta_variance": 0.6682115640502625,
+      "delta_variance_label": "high",
+      "run_length": {
+        "run_count": 51205,
+        "avg_run_length": 1.2798750122058393,
+        "max_run_length": 3,
+        "max_run_fraction": 0.0000457763671875
+      },
+      "min_bit_width": 16,
+      "absolute_bit_width": 29,
+      "local_block_ranges": {
+        "block_rows": 16384,
+        "block_count": 4,
+        "avg_range": 12800.75,
+        "max_range": 13109.0,
+        "global_range": 51205.0,
+        "label": "moderate"
+      },
+      "dictionary_size": null,
+      "repetition": {
+        "mode": 379885294,
+        "mode_count": 3,
+        "mode_frequency": 0.0000457763671875,
+        "top": [
+          [
+            379885294,
+            3
+          ],
+          [
+            379885454,
+            3
+          ],
+          [
+            379885466,
+            3
+          ],
+          [
+            379885472,
+            3
+          ],
+          [
+            379885473,
+            3
+          ]
+        ]
+      }
+    }
+  ]
+}

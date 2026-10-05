@@ -1,0 +1,20 @@
+windows-a-20260917-windows-real_auto_z3_b64k-w2: ingest complete, verifying every decoded record
+windows-a-20260917-windows-real_auto_z3_b64k-w2: verifying unbounded filtered query against source hash
+        1.03 real         1.33 user         0.05 sys
+           200065024  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               17636  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   6  voluntary context switches
+                 592  involuntary context switches
+         16015625301  instructions retired
+          4071968438  cycles elapsed
+            98714152  peak memory footprint

@@ -1,0 +1,100 @@
+{
+  "suite": "compare",
+  "meta": {
+    "git_commit": null,
+    "rustc_version": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo_profile": "release",
+    "debug_assertions": false,
+    "compiler_settings": "opt-level>=1 (release/no debug_assertions)",
+    "os": "macos",
+    "arch": "aarch64",
+    "dataset_seed": 42,
+    "workload": "market",
+    "worker_count": 18,
+    "block_size": 65536,
+    "segment_size_bytes": 268435456,
+    "record_count": 100000,
+    "size_label": "100k",
+    "compression_codec": "lz4",
+    "started_unix_secs": 1789481147
+  },
+  "metrics": {
+    "csv_size_bytes": 5918439,
+    "disclaimer": "Do not claim Strata is universally better than Parquet, SQLite, DuckDB, or another system based on this suite alone.",
+    "fixed_binary_size_bytes": 5500114,
+    "formats": [
+      {
+        "decode_elapsed_ms": 44,
+        "decode_records": 100000,
+        "decode_records_per_sec": 2259814.6405119635,
+        "encode_elapsed_ms": 53,
+        "encode_records_per_sec": 1865304.810111877,
+        "format": "jsonl",
+        "notes": "NDJSON; text; field names per row",
+        "path": "/var/folders/pz/ncdtccx12f7cblfxr9gtwvz80000gn/T/strata-bench-83438/compare-market-100k-42/baseline.jsonl",
+        "size_bytes": 14918373
+      },
+      {
+        "decode_elapsed_ms": 10,
+        "decode_records": 100000,
+        "decode_records_per_sec": 9806004.863974532,
+        "encode_elapsed_ms": 34,
+        "encode_records_per_sec": 2926561.5664268606,
+        "format": "csv",
+        "notes": "flat tabular CSV with header",
+        "path": "/var/folders/pz/ncdtccx12f7cblfxr9gtwvz80000gn/T/strata-bench-83438/compare-market-100k-42/baseline.csv",
+        "size_bytes": 5918439
+      },
+      {
+        "decode_elapsed_ms": 0,
+        "decode_records": 100000,
+        "decode_records_per_sec": 171845813.0626876,
+        "encode_elapsed_ms": 13,
+        "encode_records_per_sec": 7408916.631165608,
+        "format": "fixed_binary",
+        "notes": "naive little-endian fixed slots; not a production format",
+        "path": "/var/folders/pz/ncdtccx12f7cblfxr9gtwvz80000gn/T/strata-bench-83438/compare-market-100k-42/baseline.fixed",
+        "size_bytes": 5500114
+      },
+      {
+        "decode_elapsed_ms": 5,
+        "decode_records": 100000,
+        "decode_records_per_sec": 19156475.262189887,
+        "encode_elapsed_ms": 51,
+        "encode_records_per_sec": 1949181.562052273,
+        "format": "parquet_zstd",
+        "notes": "Apache Parquet + ZSTD level 3 via arrow/parquet; single file",
+        "path": "/var/folders/pz/ncdtccx12f7cblfxr9gtwvz80000gn/T/strata-bench-83438/compare-market-100k-42/baseline.parquet",
+        "size_bytes": 1338721
+      },
+      {
+        "decode_elapsed_ms": 93,
+        "decode_records": 100000,
+        "decode_records_per_sec": 1075102.638705039,
+        "encode_elapsed_ms": 26,
+        "encode_records_per_sec": 3832096.536949688,
+        "format": "strata",
+        "notes": "Strata dataset dir; codec=lz4; semantic_encoded and compressed reported separately",
+        "path": "/var/folders/pz/ncdtccx12f7cblfxr9gtwvz80000gn/T/strata-bench-83438/compare-market-100k-42/strata",
+        "size_bytes": 786640
+      }
+    ],
+    "json_size_bytes": 14918373,
+    "methodology": "Fair comparison methodology (strata-bench compare):\n1. One deterministic generator (workload + seed + size) produces the logical records.\n2. The same chunks are written, in lockstep, to each baseline and to Strata.\n3. Sizes are on-disk bytes after a full encode/close (Strata = dataset directory bytes\n   and separately semantic_encoded / compressed block totals from segment metadata).\n4. Raw logical size is the sum of decoded field payloads (schema widths / UTF-8 lengths)\n   with no keys, separators, dictionaries, headers, or compression.\n5. Encode/decode throughput uses wall-clock for a full write or full scan of that format.\n6. This does NOT compare Strata to SQLite, DuckDB, or a tuned Parquet lakehouse stack.\n7. Parquet+Zstd (when enabled) is a single-file columnar baseline, not a claim that\n   Strata is universally better or worse than Parquet.\n8. Do not treat CSV/JSONL/fixed as optimized storage engines — they are controlled baselines.",
+    "parquet_zstd_size_bytes": 1338721,
+    "raw_logical_bytes": 4840195,
+    "records": 100000,
+    "sanity": {
+      "csv_records": 100000,
+      "expected_records": 100000,
+      "fixed_records": 100000,
+      "jsonl_records": 100000,
+      "strata_records": 100000
+    },
+    "strata_block_logical_bytes": 5240195,
+    "strata_dataset_dir_bytes": 786640,
+    "strata_final_compressed_bytes": 783224,
+    "strata_semantic_encoded_bytes": 1651216,
+    "wall_elapsed_ms": 236
+  }
+}

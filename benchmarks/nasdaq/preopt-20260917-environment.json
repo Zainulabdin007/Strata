@@ -1,0 +1,36 @@
+{
+  "started_utc": "2026-09-18T02:32:56.988170+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)",
+  "binary_sha256": "635e0ac34743c80560d3b0514176c7119090ceffb77a6d4bd0bbe331598e03a6",
+  "rust_sources_sha256": "d44d233b7035b4e748257154024659d541db6f27be27e24279d68fd50f025bb1",
+  "cargo_lock_sha256": "747b7dc0e11d120226b88524d540082ba2184191cbb5c28f6f3bb85f24c92977",
+  "argv": [
+    "scripts/run_nasdaq_baseline.py",
+    "--tiers",
+    "validation",
+    "1gb",
+    "--tag",
+    "preopt-20260917",
+    "--start-after-file",
+    "benchmarks/nasdaq/uncompressed/verification.json"
+  ],
+  "git_commit": null,
+  "corpus": "Databento XNAS.ITCH MBO; actual source files",
+  "limitations": [
+    "single measurement per case unless repeated with a new tag",
+    "warm filesystem cache; buffered I/O; fast durability without fsync guarantee",
+    "ingest includes transport decompression, DBN decode, source hashing, canonical record materialization and target writing",
+    "decode includes all-field canonical materialization and SHA-256 validation for every target",
+    "peak RSS and CPU cover entire process including input, verification and queries",
+    "full tier compares only explicitly selected --full-profiles",
+    "vendor full-file transport bytes are not a denominator for partial tiers"
+  ],
+  "cpu": "Apple M5 Pro",
+  "ram_bytes": 68719476736,
+  "logical_cpus": 18,
+  "implementation_archive": "preopt-20260917-implementation.tar.gz",
+  "frozen_binary": "binaries/635e0ac34743c80560d3b0514176c7119090ceffb77a6d4bd0bbe331598e03a6"
+}

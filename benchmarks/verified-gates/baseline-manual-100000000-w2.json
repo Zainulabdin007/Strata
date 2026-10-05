@@ -1,0 +1,101 @@
+{
+  "canonical_metrics": {
+    "active_workers": 0,
+    "blocks_completed": 1526,
+    "blocks_per_sec": 29.302628290111894,
+    "compress_mb_per_sec": 503.59812835774886,
+    "compressed_bytes": 879237288,
+    "compression_ratio": 5.387375341073821,
+    "compression_time": {
+      "nanos": 4113922303
+    },
+    "current_input_file": null,
+    "elapsed": 52077,
+    "encode_mb_per_sec": 64.34863105214727,
+    "encode_time": {
+      "nanos": 73645967156
+    },
+    "errors": 0,
+    "files_completed": 0,
+    "files_seen": 0,
+    "live": false,
+    "logical_input_bytes": 4739017169,
+    "logical_mb_per_sec": 90.99977625404021,
+    "parse_time": {
+      "nanos": 0
+    },
+    "physical_bytes_written": 879652311,
+    "physical_mb_per_sec": 16.89130058569522,
+    "queue_depth_encode": 0,
+    "queue_depth_parse": 0,
+    "queue_depth_write": 0,
+    "records_per_sec": 1920224.6585918672,
+    "records_processed": 100000000,
+    "records_read": 0,
+    "segments_completed": 4,
+    "semantic_encoded_bytes": 2071763572,
+    "source_input_bytes": 0,
+    "total_files": 0,
+    "worker_count": 2,
+    "worker_utilization": 0.7470174813196636,
+    "write_mb_per_sec": 2478.3793029294848,
+    "write_time": {
+      "nanos": 354930462
+    }
+  },
+  "decode_wall_seconds": 84.822875917,
+  "decoded_records": 100000000,
+  "encode_wall_seconds": 52.07724,
+  "format": "strata",
+  "generator": "market-v2",
+  "metrics": {
+    "compression_ratio": 5.387375341073821,
+    "decode_mb_s": 55.86956487583814,
+    "disk_mb_s": 16.89130058569522,
+    "encode_mb_s": 64.34863105214727,
+    "logical_gb_s": 0.09099977625404021,
+    "query_ms": 10559.316375,
+    "records_per_sec": 1920224.6585918672,
+    "workers": 2
+  },
+  "profile": "manual",
+  "profile_toml": "\nname = \"bench-market\"\ninput_format = \"csv\"\n\n[input]\nrecursive = true\nextensions = [\"csv\"]\n\n[schema]\nid = \"bench_market_events\"\ndescription = \"strata-bench market generator schema\"\n\n[[columns]]\nname = \"timestamp\"\nlogical_type = \"timestamp\"\nunit = \"nanoseconds\"\nnullable = false\nencoding = [\"delta_of_delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"sequence\"\nlogical_type = \"unsigned_integer\"\nwidth = \"bits64\"\nnullable = false\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"order_id\"\nlogical_type = \"unsigned_integer\"\nwidth = \"bits64\"\nnullable = false\nencoding = [\"delta\", \"zigzag\", \"bitpack\"]\n\n[[columns]]\nname = \"symbol\"\nlogical_type = \"categorical_string\"\nmax_bytes = 8\nnullable = false\nencoding = [\"dictionary\", \"bitpack\"]\n\n[[columns]]\nname = \"price\"\nlogical_type = \"fixed_decimal\"\nprecision = 18\nscale = 4\nwidth = \"bits64\"\nnullable = false\nencoding = [\"frame_of_reference\", \"bitpack\"]\n\n[[columns]]\nname = \"quantity\"\nlogical_type = \"unsigned_integer\"\nwidth = \"bits32\"\nnullable = false\nencoding = [\"varint\"]\n\n[[columns]]\nname = \"side\"\nlogical_type = \"enum\"\nvariants = [\"buy\", \"sell\"]\nnullable = false\nencoding = [\"enum_bitpack\"]\n\n[[columns]]\nname = \"event_type\"\nlogical_type = \"enum\"\nvariants = [\"new\", \"cancel\", \"fill\", \"replace\"]\nnullable = false\nencoding = [\"enum_bitpack\"]\n\n[block]\nrow_count = 65536\n\n[segment]\ntarget_size_bytes = 268435456\n\n[compression]\ncodec = \"zstd\"\nlevel = 3\n",
+  "query": {
+    "elapsed_ms": 10559.316375,
+    "first": 50000000,
+    "last": 50000999,
+    "rows": 1000,
+    "stats": {
+      "batches_returned": 1,
+      "blocks_scanned": 1526,
+      "blocks_skipped": 0,
+      "rows_examined": 100000000,
+      "rows_returned": 1000
+    },
+    "text": "select sequence where sequence between 50000000 and 50000999"
+  },
+  "records": 100000000,
+  "release_build": true,
+  "seed": 42,
+  "sizes": {
+    "blocks": 1526,
+    "compression_ratio": 5.387375341073821,
+    "logical_bytes": 4739017169,
+    "physical_bytes": 879652311,
+    "records": 100000000,
+    "segments": 4,
+    "storage_saved_bytes": 3859364858
+  },
+  "tag": "baseline",
+  "verified_records": 100000000,
+  "process_usage": {
+    "process_wall_seconds": 297.4244890830014,
+    "peak_rss_bytes": 1270333440,
+    "time_wall_seconds": 297.4,
+    "user_seconds": 387.25,
+    "system_seconds": 5.07,
+    "cpu_percent_of_one_core": 131.91661062542033
+  },
+  "environment": "baseline-environment.json",
+  "timing_valid": true
+}

@@ -1,0 +1,23 @@
+[package]
+name = "strata-optimize"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+description = "Automatic compression-plan optimization for Strata"
+
+[dependencies]
+strata-core = { workspace = true }
+strata-analyze = { workspace = true }
+strata-codec = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+strata-metrics = { workspace = true }
+
+strata-storage = { workspace = true }
+anyhow = { workspace = true }
+
+[dev-dependencies]
