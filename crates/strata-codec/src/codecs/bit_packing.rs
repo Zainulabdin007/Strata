@@ -38,7 +38,7 @@ pub(super) fn decode_bytes(bytes: &[u8], meta: Option<&StepMetadata>) -> Result<
     }
     let bit_width = meta.blob[0];
     let count = u32::from_le_bytes(meta.blob[1..5].try_into().unwrap()) as usize;
-    let values = unpack(&bytes, count, bit_width)?;
+    let values = unpack(bytes, count, bit_width)?;
     Ok(Stream::U64(values))
 }
 
@@ -85,7 +85,7 @@ pub fn pack(values: &[u64], bit_width: u8) -> Result<Vec<u8>> {
         let offset = bit / 8;
         let shift = bit % 8;
         let word = (v << shift).to_le_bytes();
-        let n = (out.len() - offset).min(8);
+        let n = (shift + bit_width as usize).div_ceil(8).min(8);
         for j in 0..n {
             out[offset + j] |= word[j];
         }
@@ -118,26 +118,73 @@ pub fn unpack(bytes: &[u8], count: usize, bit_width: u8) -> Result<Vec<u64>> {
         });
     }
     let mut out = Vec::with_capacity(count);
-    if bit_width == 64 {
-        out.extend(
-            bytes
-                .chunks_exact(8)
-                .map(|v| u64::from_le_bytes(v.try_into().unwrap())),
-        );
-    } else {
-        let mask = (1u64 << bit_width) - 1;
-        for i in 0..count {
-            let bit = i * bit_width as usize;
-            let offset = bit / 8;
-            let shift = bit % 8;
-            let mut word = [0u8; 8];
-            let n = (bytes.len() - offset).min(8);
-            word[..n].copy_from_slice(&bytes[offset..offset + n]);
-            let mut value = u64::from_le_bytes(word) >> shift;
-            if shift + bit_width as usize > 64 {
-                value |= u64::from(bytes[offset + 8]) << (64 - shift);
+    match bit_width {
+        1 | 2 | 4 => {
+            let mask = (1u8 << bit_width) - 1;
+            for &byte in bytes {
+                for shift in (0..8).step_by(bit_width as usize) {
+                    if out.len() == count {
+                        break;
+                    }
+                    out.push(u64::from((byte >> shift) & mask));
+                }
             }
-            out.push(value & mask);
+        }
+        8 => out.extend(bytes.iter().map(|&v| u64::from(v))),
+        16 => out.extend(
+            bytes
+                .as_chunks::<2>()
+                .0
+                .iter()
+                .map(|v| u64::from(u16::from_le_bytes(*v))),
+        ),
+        32 => out.extend(
+            bytes
+                .as_chunks::<4>()
+                .0
+                .iter()
+                .map(|v| u64::from(u32::from_le_bytes(*v))),
+        ),
+        64 => out.extend(
+            bytes
+                .as_chunks::<8>()
+                .0
+                .iter()
+                .map(|v| u64::from_le_bytes(*v)),
+        ),
+        _ => {
+            let mask = (1u64 << bit_width) - 1;
+            // Most values have a complete eight-byte word available. Keep the
+            // short-tail copy out of that hot loop; never read past the payload.
+            let full = if bytes.len() >= 8 {
+                (((bytes.len() - 8) * 8) / bit_width as usize + 1).min(count)
+            } else {
+                0
+            };
+            for i in 0..full {
+                let bit = i * bit_width as usize;
+                let offset = bit / 8;
+                let shift = bit % 8;
+                let word = u64::from_le_bytes(bytes[offset..offset + 8].try_into().unwrap());
+                let mut value = word >> shift;
+                if shift + bit_width as usize > 64 {
+                    value |= u64::from(bytes[offset + 8]) << (64 - shift);
+                }
+                out.push(value & mask);
+            }
+            for i in full..count {
+                let bit = i * bit_width as usize;
+                let offset = bit / 8;
+                let shift = bit % 8;
+                let mut word = [0u8; 8];
+                let n = (bytes.len() - offset).min(8);
+                word[..n].copy_from_slice(&bytes[offset..offset + n]);
+                let mut value = u64::from_le_bytes(word) >> shift;
+                if shift + bit_width as usize > 64 {
+                    value |= u64::from(bytes[offset + 8]) << (64 - shift);
+                }
+                out.push(value & mask);
+            }
         }
     }
     Ok(out)
@@ -192,7 +239,7 @@ mod tests {
     #[test]
     fn word_unpack_matches_scalar_all_widths_and_tails() {
         for width in 1..=64 {
-            for count in [0, 1, 2, 7, 8, 9, 31, 127] {
+            for count in [0, 1, 2, 7, 8, 9, 31, 127, 128, 257, 1024] {
                 let mask = u64::MAX >> (64 - width);
                 let values: Vec<_> = (0..count)
                     .map(|i| (i as u64).wrapping_mul(0x9e3779b97f4a7c15) & mask)

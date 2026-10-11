@@ -41,12 +41,13 @@ pub fn decode(input: Stream, meta: Option<&StepMetadata>) -> Result<Stream> {
         });
     }
     let frame = i64::from_le_bytes(meta.blob.as_slice().try_into().unwrap());
-    let offsets = input.into_u64()?;
-    let values = offsets
-        .into_iter()
-        .map(|o| frame.wrapping_add(o as i64))
-        .collect();
-    Ok(Stream::I64(values))
+    let mut offsets = input.into_u64()?;
+    for offset in &mut offsets {
+        *offset = frame.wrapping_add(*offset as i64) as u64;
+    }
+    Ok(Stream::I64(crate::stream::reinterpret_u64_bits_as_i64(
+        offsets,
+    )))
 }
 
 #[cfg(test)]

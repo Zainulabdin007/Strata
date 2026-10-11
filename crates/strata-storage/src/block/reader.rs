@@ -3,7 +3,7 @@
 use std::{borrow::Cow, path::Path, sync::Arc};
 
 use strata_codec::{compressor_for, decode_column, ColumnDecoder, CompressionCodec, PlainEncoder};
-use strata_core::{FieldValue, Record, RecordBatch, Schema};
+use strata_core::{FieldValue, LogicalType, Record, RecordBatch, Schema};
 use strata_format::{crc32, BlockEncoding, BlockMeta, ColumnBlockMeta, BLOCK_FRAME_VERSION};
 
 use crate::error::{Error, Result};
@@ -292,10 +292,24 @@ fn decode_semantic_body(
                 strata_core::validate_field_value(field, value)?;
             }
         }
-        let logical_bytes: u64 = values
-            .iter()
-            .map(|v| strata_core::logical_value_bytes(&field.logical_type, v))
-            .sum();
+        // Fixed-width, required columns have already passed type and null
+        // validation. Their logical size follows from the schema and count;
+        // another traversal of the decoded values would do redundant work.
+        let fixed_width = match &field.logical_type {
+            LogicalType::Boolean(_) => Some(1),
+            LogicalType::UnsignedInteger(t) => Some(u64::from(t.width.bytes())),
+            LogicalType::SignedInteger(t) => Some(u64::from(t.width.bytes())),
+            LogicalType::FixedDecimal(t) => Some(u64::from(t.width.bytes())),
+            LogicalType::Timestamp(_) => Some(8),
+            _ => None,
+        };
+        let logical_bytes: u64 = match fixed_width.filter(|_| !field.nullable) {
+            Some(width) => width * u64::from(row_count),
+            None => values
+                .iter()
+                .map(|v| strata_core::logical_value_bytes(&field.logical_type, v))
+                .sum(),
+        };
         if let Some(meta) = col_metas.iter_mut().find(|c| c.field_name == *name) {
             meta.logical_bytes = logical_bytes;
         }

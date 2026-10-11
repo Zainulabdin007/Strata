@@ -54,6 +54,18 @@ try{
   const reported=await fetch('http://127.0.0.1:19161/api/benchmarks').then(r=>r.json());
   assert.deepEqual(reported[0].canonical_metrics,measured.canonical_metrics);
   console.log('PASS real Nasdaq report: exact canonical metrics from API, corpus grouping, no fake worker scaling');
+  // A second real run of the same corpus/count used expanded DBN and a newer
+  // implementation. It must not be mixed with streaming transport timings.
+  const rawReport=join(repo,'benchmarks/nasdaq/results/opt-raw-20260917-validation-manual-w2.json');
+  const raw=JSON.parse(await readFile(rawReport,'utf8'));
+  assert.equal(raw.records,measured.records);
+  await cp(rawReport,join(root,'benchmarks/nasdaq/results/raw.json'));
+  await page.reload();
+  await page.getByRole('button',{name:'Benchmarks',exact:false}).click();
+  await page.getByLabel('Benchmark workload').waitFor();
+  assert.equal(await page.getByLabel('Benchmark workload').locator('option').count(),2);
+  assert.equal(await page.locator('.bar-row').count(),5);
+  console.log('PASS benchmark groups separate run and input representation');
  }catch(e){if(e.code!=='ENOENT')throw e;console.log('Real corpus report not present; optional Nasdaq chart integration not run');}
 
  await page.getByRole('button',{name:'Experiment',exact:false}).click();

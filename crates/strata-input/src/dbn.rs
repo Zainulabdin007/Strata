@@ -8,7 +8,7 @@ use ::dbn::{
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::{
-    collections::BTreeSet,
+    collections::HashSet,
     fs::File,
     io::{self, BufReader, Cursor, Read},
     path::{Path, PathBuf},
@@ -165,7 +165,7 @@ pub struct MboReader {
     stats: DbnStats,
     compressed: Arc<Mutex<Observed>>,
     decompressed: Arc<Mutex<Observed>>,
-    instruments: BTreeSet<u32>,
+    instruments: HashSet<u32>,
     canonical: Sha256,
     ts_out: bool,
     names: Arc<Vec<String>>,
@@ -261,7 +261,7 @@ impl MboReader {
                         .map(|f| f.name.clone())
                         .collect(),
                 ),
-                instruments: BTreeSet::new(),
+                instruments: HashSet::new(),
                 canonical: Sha256::new(),
                 ts_out,
             })
@@ -285,6 +285,9 @@ impl MboReader {
             .unwrap_or_else(|e| e.into_inner())
             .bytes;
         s.instrument_ids = self.instruments.iter().copied().collect();
+        // The hot ingest path only needs membership. Sort once when publishing
+        // statistics so census/sample artifacts remain deterministic.
+        s.instrument_ids.sort_unstable();
         s.canonical_sha256 = format!("{:x}", self.canonical.clone().finalize());
         if s.complete {
             s.source_sha256 = Some(format!(
@@ -583,6 +586,7 @@ mod tests {
                 );
                 assert_eq!(s.undefined_ts_event, 1);
                 assert_eq!(s.instrument_ids.len(), 17);
+                assert_eq!(s.instrument_ids, (100..117).collect::<Vec<_>>());
                 strata_core::parse_profile_str(&mbo_profile(ts_out), "fixture").unwrap();
                 std::fs::remove_file(path).unwrap();
             }

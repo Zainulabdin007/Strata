@@ -91,7 +91,7 @@ pub(super) fn decode_bytes(bytes: &[u8], meta: Option<&StepMetadata>) -> Result<
         });
     }
 
-    let ids = bit_packing::unpack(&bytes, count, bit_width)?;
+    let ids = bit_packing::unpack(bytes, count, bit_width)?;
     let mut values = Vec::with_capacity(ids.len());
     let mut expanded = 0usize;
     for id in ids {

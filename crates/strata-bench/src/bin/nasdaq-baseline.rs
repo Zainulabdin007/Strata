@@ -308,7 +308,10 @@ impl<'a> Validator<'a> {
     }
     fn canonical_batch(&mut self, bytes: &[u8]) -> Result<()> {
         let width = if self.ts_out { 64 } else { 56 };
-        ensure!(bytes.len() % width == 0, "unaligned canonical batch");
+        ensure!(
+            bytes.len().is_multiple_of(width),
+            "unaligned canonical batch"
+        );
         let mut offset = 0;
         while offset < bytes.len() {
             while self.file < self.sources.len() && self.sources[self.file].records == 0 {

@@ -1,6 +1,6 @@
-# Strata On-Disk Format (v0.1)
+# Strata On-Disk Format (v0.2)
 
-Status: **implemented** for uncompressed PLAIN storage. Little-endian throughout.
+Status: implemented for composable semantic pipelines and optional LZ4/Zstd compression. Little-endian throughout. The legacy PLAIN layout below remains supported; current writers use the framed pipeline layout described at the end of this document.
 
 ## Goals
 
@@ -33,8 +33,9 @@ They are derived data and always rebuildable from segments.
 
 A segment with a valid `SFTR` footer is **sealed**: immutable historical data.
 Readers may memory-map sealed segments (`SegmentReadMode::Mmap` / `Auto`) and
-borrow block frames as `&[u8]` views into the map without copying the file into
-a heap buffer. Active writers and recovery paths continue to use buffered I/O.
+borrow block frames as `&[u8]` views into an immutable anonymous snapshot. Opening
+a segment copies the file into private pages and makes them read-only; this is
+not file-backed zero-copy mmap. External truncation cannot invalidate slices. Active writers and recovery paths continue to use buffered I/O.
 
 ## Segment file (`.strata`)
 
@@ -74,7 +75,7 @@ a heap buffer. Active writers and recovery paths continue to use buffered I/O.
 | column_count | `u32` | |
 | column directory | … | name, encoding=`1` (PLAIN), `data_rel_offset`, `data_len` |
 | column payloads | bytes | in schema order |
-| crc32 | `u32` | IEEE CRC32 of all preceding block bytes |
+| crc32 | `u32` | IEEE CRC32 of all preceding block-frame bytes |
 
 Offsets in the column directory are relative to the **start of the block**, enabling safe skip/read of individual columns.
 
@@ -89,7 +90,7 @@ Per block: `block_id`, `file_offset`, `block_length`, `row_count`, `column_count
 | block_directory_offset | `u64` |
 | logical_bytes | `u64` |
 | encoded_bytes | `u64` |
-| blocks_crc32 | `u32` | CRC32 of concatenated block bytes |
+| blocks_crc32 | `u32` | v0.2: CRC32 of the entire preceding file prefix, including header, directory and the first 24 footer bytes |
 | footer_magic | `[u8; 4]` | `SFTR` |
 
 ## PLAIN column encoding
@@ -116,3 +117,33 @@ Typed payloads:
 
 - Major bump: incompatible
 - Minor bump: additive; readers accept same major with `reader.minor >= file.minor`
+
+## Current framed pipeline blocks
+
+The block frame (version 1) contains `version: u8`, `codec: u8`,
+`semantic_body_length: u32`, `compressed_length: u32`, the compressed body,
+and an IEEE CRC32 of the preceding frame bytes. Codec tags are 0 (identity),
+1 (LZ4), and 2 (Zstd). Lengths and CRC are checked before decoding.
+
+The expanded semantic body starts with row and column counts, followed by a
+column directory and contiguous payloads. Directory offsets are relative to
+this expanded body, not the compressed frame. Pipeline columns use encoding
+tag 6; legacy PLAIN uses tag 1. Gaps, overlaps, trailing bytes and schema/name
+mismatches are rejected.
+
+Each pipeline payload contains column-format version 1, a length-prefixed null
+bitmap, the serialized encoding plan, ordered step metadata, and a
+length-prefixed encoded body. Decoding reverses the plan, verifies types,
+integer widths, enum domains, null counts and declared lengths, then restores
+nulls. Compression and null handling never discard represented fields.
+
+Format 0.2 segment CRC covers the entire file prefix through the first 24 footer
+bytes, including patched header counts, schema and block directory. Format 0.1
+used a block-only segment CRC and remains a legacy read path. CRC is corruption
+detection, not cryptographic authentication. Benchmark identity and lossless
+record checks use SHA-256 separately.
+
+The authoritative encoder/decoder pairs are
+`crates/strata-storage/src/segment/{writer,reader}.rs`,
+`crates/strata-storage/src/block/{writer,reader}.rs`, and
+`crates/strata-codec/src/pipeline.rs`.

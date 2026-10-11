@@ -201,12 +201,14 @@ impl Compressor for ZstdCompressor {
         ZSTD_ENCODER.with(|slot| {
             let mut slot = slot.borrow_mut();
             if slot.as_ref().is_none_or(|(level, _)| *level != self.level) {
-                *slot = Some((
-                    self.level,
+                let mut compressor =
                     zstd::bulk::Compressor::new(self.level).map_err(|e| Error::InvalidInput {
                         message: e.to_string(),
-                    })?,
-                ));
+                    })?;
+                // Content checksums are redundant with the block CRC and cost
+                // encode and decode time. The bitstream stays standard Zstd.
+                let _ = compressor.set_parameter(zstd::zstd_safe::CParameter::ChecksumFlag(false));
+                *slot = Some((self.level, compressor));
             }
             slot.as_mut()
                 .unwrap()

@@ -6,7 +6,7 @@ Keep SegmentReadMode::Auto. Measured winners this run: sequential=mmap, selectiv
 
 | case | mode | ms | rows | rows/s |
 | --- | --- | ---: | ---: | ---: |
-| buffered_sequential | buffered | 52 | 80000 | 1521929 |
-| mmap_sequential | mmap | 52 | 80000 | 1526118 |
-| buffered_selective | buffered | 13 | 876 | 63845 |
-| mmap_selective | mmap | 13 | 876 | 65520 |
+| buffered_sequential | buffered | 31 | 80000 | 2578718 |
+| mmap_sequential | mmap | 30 | 80000 | 2591359 |
+| buffered_selective | buffered | 9 | 876 | 96886 |
+| mmap_selective | mmap | 8 | 876 | 100163 |

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Strata turns structured input (file or directory) plus a `CompressionProfile` into versioned, compressed segments on disk, while emitting canonical metrics for the CLI and a future Lab dashboard.
+Strata turns structured input (file or directory) plus a `CompressionProfile` into versioned, compressed segments on disk, while emitting canonical metrics for the CLI and the local Lab dashboard.
 
 ## Pipeline
 
@@ -35,7 +35,7 @@ Strata turns structured input (file or directory) plus a `CompressionProfile` in
                                                   ▼                                         ▼
                                            ┌──────────┐                            ┌────────────────┐
                                            │ strata   │                            │ Lab dashboard  │
-                                           │ CLI      │                            │ API (later)    │
+                                           │ CLI      │                            │ API + Lab    │
                                            └──────────┘                            └────────────────┘
 ```
 
@@ -58,14 +58,14 @@ No compression algorithms. Profile loading is the only disk I/O.
 Ingest front-end:
 
 - Recursive file discovery with extension filters
-- `RecordParser` trait (CSV + JSONL today; Parquet/binary reserved)
+- `RecordParser` trait (CSV + JSONL + streaming DBN MBO; Parquet input reserved)
 - Text/JSON coercion into `FieldValue`s
 
 ### `strata-format`
 
 Logical description of the on-disk format:
 
-- Format version (`0.1` draft)
+- Format version (`0.2`)
 - `SegmentHeader` / `SegmentFooter` / `SegmentMeta`
 - `BlockMeta` / `ColumnBlockMeta` / `BlockEncoding`
 
@@ -78,13 +78,13 @@ Filesystem layout and segment I/O:
 - `DatasetWriter` / `DatasetReader`
 - `SegmentWriter` / `SegmentReader`
 - `BlockWriter` / `BlockReader`
-- Columnar PLAIN blocks, little-endian, CRC32-checked
+- Columnar semantic pipelines with optional LZ4/Zstd, little-endian, CRC32-checked
 
 ### `strata-codec`
 
 - `ColumnEncoder` / `ColumnDecoder`
 - `PlainEncoder` (null bitmap + typed dense values)
-- `Compressor` trait (`IdentityCompressor` only for now)
+- `Compressor` trait (identity, LZ4 and Zstd, with reusable thread-local Zstd contexts)
 
 ### `strata-metrics`
 
@@ -150,12 +150,20 @@ strata-metrics → (standalone; serde only)
 strata-core    → (standalone + toml)
 ```
 
-Lower crates must not depend on `strata-cli` or `strata-metrics` unless a later design explicitly requires engine-level metric hooks via traits.
+Lower crates do not depend on the CLI or API. Storage and shared engine orchestration emit canonical metrics through `strata-metrics`.
 
 ## What this phase does *not* include
 
 - SQL / joins / aggregations
-- Parquet / binary input parsers
-- Dashboard server
+- General Parquet input (native DBN MBO binary input is implemented)
+- Distributed or public multi-tenant server
 
 Those belong to subsequent implementation phases.
+
+## Shared engine and local product
+
+`strata-engine` owns shared ingest, analysis, optimization and query orchestration. The CLI and loopback `strata-api` call that engine; React `strata-lab` displays canonical snapshots and sends jobs to the API. Folder ingest commits sealed segments at file boundaries and supports checked resume, include/exclude globs and explicit continue-on-error.
+
+Records use schema-ordered value slots with shared field names. Storage exposes bounded serial and parallel columnar scans; the query engine decodes projected columns and materializes matching rows. Checks remain enabled. Segment mmap currently copies bytes into protected anonymous memory to remain safe against external truncation.
+
+`nasdaq-baseline` streams the same lossless canonical MBO records to each target, verifies every decoded field with ordered SHA-256, checks full runs against the source census, and saves measured timings plus source/configuration provenance. Synthetic benchmarks remain secondary and do not support real-corpus claims.

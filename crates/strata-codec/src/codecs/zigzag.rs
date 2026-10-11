@@ -15,9 +15,11 @@ pub fn encode(input: Stream) -> Result<StepOutput> {
 }
 
 pub fn decode(input: Stream, _meta: Option<&StepMetadata>) -> Result<Stream> {
-    let values = input.into_u64()?;
-    let out = values.into_iter().map(zigzag_decode).collect();
-    Ok(Stream::I64(out))
+    let mut values = input.into_u64()?;
+    for value in &mut values {
+        *value = zigzag_decode(*value) as u64;
+    }
+    Ok(Stream::I64(crate::stream::reinterpret_u64_bits_as_i64(values)))
 }
 
 pub fn zigzag_encode(n: i64) -> u64 {

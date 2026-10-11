@@ -17,6 +17,20 @@ pub enum Stream {
     Encoded(Vec<u8>),
 }
 
+/// Reinterpret `u64` bit patterns as `i64` without copying the buffer.
+pub(crate) fn reinterpret_u64_bits_as_i64(values: Vec<u64>) -> Vec<i64> {
+    let mut values = std::mem::ManuallyDrop::new(values);
+    // SAFETY: `i64` and `u64` have identical size and alignment. The caller
+    // stored each `i64`'s two's-complement bits in the `u64` slots.
+    unsafe {
+        Vec::from_raw_parts(
+            values.as_mut_ptr().cast::<i64>(),
+            values.len(),
+            values.capacity(),
+        )
+    }
+}
+
 impl Stream {
     /// Number of logical present values (or byte length for [`Stream::Encoded`]).
     pub fn len(&self) -> usize {

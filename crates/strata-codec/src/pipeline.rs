@@ -207,42 +207,56 @@ pub fn decode_column(
             message: "empty decode plan".into(),
         })?,
     )?;
-    for value in &present {
-        match (logical_type, value) {
-            (LogicalType::UnsignedInteger(t), FieldValue::UnsignedInteger(n)) => {
-                check_u_width(*n, t.width)?
+    // stream_to_values already guarantees the variant. Full-width integers,
+    // timestamps and unbounded byte/string values have no additional domain
+    // restriction; avoid walking those arrays a second time.
+    let needs_domain_check = match logical_type {
+        LogicalType::UnsignedInteger(t) => t.width != IntegerWidth::Bits64,
+        LogicalType::SignedInteger(t) => t.width != IntegerWidth::Bits64,
+        LogicalType::FixedDecimal(t) => t.width != IntegerWidth::Bits64,
+        LogicalType::CategoricalString(t) => t.max_bytes.is_some(),
+        LogicalType::Binary(t) => t.max_bytes.is_some(),
+        LogicalType::Enum(_) => true,
+        _ => false,
+    };
+    if needs_domain_check {
+        for value in &present {
+            match (logical_type, value) {
+                (LogicalType::UnsignedInteger(t), FieldValue::UnsignedInteger(n)) => {
+                    check_u_width(*n, t.width)?
+                }
+                (LogicalType::SignedInteger(t), FieldValue::SignedInteger(n)) => {
+                    check_i_width(*n, t.width)?
+                }
+                (LogicalType::FixedDecimal(t), FieldValue::FixedDecimal(n)) => {
+                    check_i_width(*n, t.width)?
+                }
+                (LogicalType::Enum(t), FieldValue::Enum(s)) if !t.variants.contains(s) => {
+                    return Err(Error::Decode {
+                        message: "enum outside schema domain".into(),
+                    })
+                }
+                (LogicalType::CategoricalString(t), FieldValue::CategoricalString(s))
+                    if t.max_bytes.is_some_and(|max| s.len() > max as usize) =>
+                {
+                    return Err(Error::Decode {
+                        message: "string exceeds schema bound".into(),
+                    })
+                }
+                (LogicalType::Binary(t), FieldValue::Binary(s))
+                    if t.max_bytes.is_some_and(|max| s.len() > max as usize) =>
+                {
+                    return Err(Error::Decode {
+                        message: "binary exceeds schema bound".into(),
+                    })
+                }
+                _ => {}
             }
-            (LogicalType::SignedInteger(t), FieldValue::SignedInteger(n)) => {
-                check_i_width(*n, t.width)?
-            }
-            (LogicalType::FixedDecimal(t), FieldValue::FixedDecimal(n)) => {
-                check_i_width(*n, t.width)?
-            }
-            (LogicalType::Enum(t), FieldValue::Enum(s)) if !t.variants.contains(s) => {
-                return Err(Error::Decode {
-                    message: "enum outside schema domain".into(),
-                })
-            }
-            (LogicalType::CategoricalString(t), FieldValue::CategoricalString(s))
-                if t.max_bytes.is_some_and(|max| s.len() > max as usize) =>
-            {
-                return Err(Error::Decode {
-                    message: "string exceeds schema bound".into(),
-                })
-            }
-            (LogicalType::Binary(t), FieldValue::Binary(s))
-                if t.max_bytes.is_some_and(|max| s.len() > max as usize) =>
-            {
-                return Err(Error::Decode {
-                    message: "binary exceeds schema bound".into(),
-                })
-            }
-            _ => {}
         }
     }
     let n = row_count as usize;
     let full = bitmap[..n / 8].iter().all(|&b| b == 255)
-        && (n % 8 == 0 || bitmap[n / 8] & ((1 << (n % 8)) - 1) == (1 << (n % 8)) - 1);
+        && (n.is_multiple_of(8) || bitmap[n / 8] & ((1 << (n % 8)) - 1) == (1 << (n % 8)) - 1);
     if full {
         if present.len() != n {
             return Err(Error::Decode {

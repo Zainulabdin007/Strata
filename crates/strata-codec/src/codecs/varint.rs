@@ -66,6 +66,12 @@ pub fn write_varint(out: &mut Vec<u8>, mut v: u64) {
 }
 
 pub fn read_varint(bytes: &[u8]) -> Result<(u64, usize)> {
+    // Most deltas and small codes are a single byte. Keep that off the shift loop.
+    if let Some(&b) = bytes.first() {
+        if b < 0x80 {
+            return Ok((u64::from(b), 1));
+        }
+    }
     let mut result = 0u64;
     let mut shift = 0u32;
     for (i, b) in bytes.iter().enumerate() {

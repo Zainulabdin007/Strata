@@ -146,6 +146,8 @@ impl QueryStream {
                 .collect();
             let names = std::sync::Arc::new(self.select.clone());
             let mut out_records = Vec::new();
+            // This ordinal indexes rows across multiple projected columns.
+            #[allow(clippy::needless_range_loop)]
             for row in 0..meta.row_count as usize {
                 self.stats.rows_examined += 1;
                 if !self

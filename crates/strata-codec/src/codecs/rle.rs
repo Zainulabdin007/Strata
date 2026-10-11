@@ -74,14 +74,12 @@ pub(super) fn decode_bytes(bytes: &[u8], _meta: Option<&StepMetadata>) -> Result
                 message: "zero RLE run".into(),
             });
         }
-        crate::limits::check_count(values.len().checked_add(count as usize).ok_or_else(|| {
-            Error::Decode {
-                message: "RLE overflow".into(),
-            }
-        })?)?;
-        for _ in 0..count {
-            values.push(value);
-        }
+        let count = count as usize;
+        let new_len = values.len().checked_add(count).ok_or_else(|| Error::Decode {
+            message: "RLE overflow".into(),
+        })?;
+        crate::limits::check_count(new_len)?;
+        values.resize(new_len, value);
     }
     if pos != bytes.len() {
         return Err(Error::Decode {
